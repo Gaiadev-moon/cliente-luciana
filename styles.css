@@ -928,7 +928,57 @@ a { color: inherit; }
     align-items: stretch;
   }
 
-  .topbar { border-radius: 30px; }
+  .topbar {
+    position: static;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 26px;
+    margin-bottom: 18px;
+  }
+  .brand {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+  }
+  .brand-copy strong {
+    font-size: 1.25rem;
+  }
+  .brand-copy small {
+    font-size: 0.84rem;
+  }
+  .demo-badge {
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 0.72rem;
+    align-self: flex-start;
+  }
+  .main-nav {
+    width: 100%;
+    padding: 4px;
+    gap: 4px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+    font-size: 0.92rem;
+  }
+  .header-actions {
+    width: 100%;
+  }
+  .header-actions .button,
+  .header-actions .cart-button {
+    width: 100%;
+  }
   .payment-methods,
   .payment-form-grid {
     grid-template-columns: 1fr;
