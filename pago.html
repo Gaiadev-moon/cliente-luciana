@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roble Casa | Pago</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="payment">
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <span class="brand-mark">RC</span>
+        <div class="brand-copy">
+          <strong>Roble Casa</strong>
+          <small>Muebles calidos para cada ambiente</small>
+        </div>
+      </a>
+      <span class="demo-badge">Demo para Luciana</span>
+      <nav class="main-nav" aria-label="Principal">
+        <a class="nav-link" href="index.html">Inicio</a>
+        <a class="nav-link" href="tienda.html">Tienda</a>
+        <a class="nav-link is-active" href="pago.html">Pago</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button-secondary button-small" href="tienda.html">Seguir comprando</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="payment-hero">
+        <div>
+          <span class="eyebrow">Pago</span>
+          <h1>Revisa tu pedido y elige el medio de pago.</h1>
+          <p>Esta vista muestra el cierre de compra con tarjetas y medios habituales para la presentacion.</p>
+        </div>
+      </section>
+
+      <section class="payment-layout" id="paymentLayout" hidden>
+        <article class="payment-card">
+          <div class="section-heading payment-heading">
+            <div>
+              <span class="eyebrow">Datos del pedido</span>
+              <h2>Resumen de compra</h2>
+            </div>
+          </div>
+          <div class="payment-order" id="paymentOrder"></div>
+          <div class="payment-summary" id="paymentSummary"></div>
+        </article>
+
+        <article class="payment-card">
+          <div class="section-heading payment-heading">
+            <div>
+              <span class="eyebrow">Medios disponibles</span>
+              <h2>Metodo de pago</h2>
+            </div>
+          </div>
+
+          <div class="payment-methods">
+            <button class="payment-method is-active" data-method="visa" type="button">
+              <span class="payment-brand payment-brand-visa">VISA</span>
+              <small>Credito y debito</small>
+            </button>
+            <button class="payment-method" data-method="mastercard" type="button">
+              <span class="payment-brand payment-brand-mastercard">Mastercard</span>
+              <small>Credito y debito</small>
+            </button>
+            <button class="payment-method" data-method="amex" type="button">
+              <span class="payment-brand payment-brand-amex">AMEX</span>
+              <small>Tarjeta internacional</small>
+            </button>
+            <button class="payment-method" data-method="pse" type="button">
+              <span class="payment-brand payment-brand-pse">PSE</span>
+              <small>Transferencia inmediata</small>
+            </button>
+          </div>
+
+          <form class="payment-form" id="paymentForm">
+            <label>
+              <span>Titular</span>
+              <input id="cardHolder" type="text" placeholder="Nombre como aparece en la tarjeta" required>
+            </label>
+            <label>
+              <span>Numero de tarjeta</span>
+              <input id="cardNumber" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" required>
+            </label>
+            <div class="payment-form-grid">
+              <label>
+                <span>Vencimiento</span>
+                <input id="cardExpiry" type="text" placeholder="MM/AA" required>
+              </label>
+              <label>
+                <span>CVV</span>
+                <input id="cardCvv" type="password" inputmode="numeric" placeholder="123" required>
+              </label>
+            </div>
+            <div class="checkout-review">
+              <strong>Pago protegido</strong>
+              <span>Visa, Mastercard, Amex y PSE visibles para mostrar el flujo final de cobro.</span>
+            </div>
+            <button class="button button-primary button-full" type="submit">Pagar ahora</button>
+          </form>
+
+          <div class="checkout-success" id="paymentSuccess" hidden></div>
+        </article>
+      </section>
+
+      <section class="payment-empty" id="paymentEmpty" hidden>
+        <article class="empty-state">
+          <h3>No hay un pedido cargado</h3>
+          <p>Vuelve a la tienda, agrega productos al carrito y continua con la compra.</p>
+          <a class="button button-primary" href="tienda.html">Ir a la tienda</a>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>

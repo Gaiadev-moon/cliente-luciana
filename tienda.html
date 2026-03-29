@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roble Casa | Tienda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="shop">
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <span class="brand-mark">RC</span>
+        <div class="brand-copy">
+          <strong>Roble Casa</strong>
+          <small>Muebles calidos para cada ambiente</small>
+        </div>
+      </a>
+      <span class="demo-badge">Demo para Luciana</span>
+      <nav class="main-nav" aria-label="Principal">
+        <a class="nav-link" href="index.html">Inicio</a>
+        <a class="nav-link is-active" href="tienda.html">Tienda</a>
+        <a class="nav-link" href="index.html#best-sellers">Mas vendidos</a>
+        <a class="nav-link" href="index.html#new-arrivals">Novedades</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button-secondary button-small" id="headerWhatsapp" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+        <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
+          <span class="cart-button-copy">
+            <small>Compra</small>
+            <strong>Ver carrito</strong>
+          </span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="shop-hero">
+        <div>
+          <span class="eyebrow">Tienda completa</span>
+          <h1>Explora el catalogo y filtra a tu ritmo.</h1>
+          <p>Busca por categoria, material o precio. Todo el catalogo esta pensado para mantener una linea calida, sobria y facil de combinar.</p>
+        </div>
+        <div class="shop-hero-actions">
+          <a class="button button-secondary" href="index.html">Volver al inicio</a>
+          <a class="button button-primary" id="shopWhatsapp" href="#" target="_blank" rel="noreferrer">Necesito ayuda</a>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalogo">
+        <div class="catalog-layout">
+          <aside class="filters-panel">
+            <div class="filters-heading">
+              <div>
+                <span class="eyebrow">Refina tu busqueda</span>
+                <h3>Filtrar productos</h3>
+              </div>
+              <button class="button button-ghost" id="resetFilters" type="button">Limpiar</button>
+            </div>
+            <div class="filter-group">
+              <label for="searchInput">Buscar</label>
+              <input id="searchInput" type="search" placeholder="Sofa, roble, lampara...">
+            </div>
+            <div class="filter-grid">
+              <div class="filter-group">
+                <label for="categoryFilter">Categoria</label>
+                <select id="categoryFilter">
+                  <option value="all">Todas</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="materialFilter">Material</label>
+                <select id="materialFilter">
+                  <option value="all">Todos</option>
+                </select>
+              </div>
+            </div>
+            <div class="filter-group">
+              <label for="sortFilter">Ordenar por</label>
+              <select id="sortFilter">
+                <option value="featured">Seleccion destacada</option>
+                <option value="price-asc">Precio: menor a mayor</option>
+                <option value="price-desc">Precio: mayor a menor</option>
+                <option value="rating-desc">Mejor calificacion</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <div class="filter-range-header">
+                <label for="priceRange">Precio maximo</label>
+                <strong id="priceValue">$4.200.000</strong>
+              </div>
+              <input id="priceRange" type="range" min="500000" max="4200000" step="100000" value="4200000">
+            </div>
+            <div class="filter-note">
+              <span>Compra con mas contexto</span>
+              <p>Revisa cuotas, materiales y categorias antes de decidir. Si necesitas ayuda, puedes escribirnos por WhatsApp.</p>
+            </div>
+          </aside>
+
+          <div class="catalog-content">
+            <div class="catalog-toolbar">
+              <div>
+                <span class="eyebrow">Resultados</span>
+                <h3 id="resultsTitle">0 productos disponibles</h3>
+              </div>
+              <p id="resultsSummary">Cargando catalogo...</p>
+            </div>
+            <div class="featured-strip" id="featuredStrip"></div>
+            <div class="product-grid" id="productGrid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <span class="eyebrow">Compra</span>
+        <h2>Tu carrito</h2>
+      </div>
+      <button class="icon-button" id="closeCart" type="button" aria-label="Cerrar carrito">x</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+      <div><span>Envio</span><strong id="cartShipping">$0</strong></div>
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
+      <button class="button button-primary button-full" id="checkoutButton" type="button">Finalizar compra</button>
+    </div>
+    <div class="checkout-panel" id="checkoutPanel" hidden>
+      <div class="checkout-heading">
+        <div>
+          <span class="eyebrow">Compra</span>
+          <h3>Datos para el pedido</h3>
+        </div>
+        <button class="button button-ghost button-small" id="backToCart" type="button">Volver</button>
+      </div>
+      <form class="checkout-form" id="checkoutForm">
+        <label>
+          <span>Nombre completo</span>
+          <input id="checkoutName" name="name" type="text" placeholder="Tu nombre" required>
+        </label>
+        <label>
+          <span>Telefono</span>
+          <input id="checkoutPhone" name="phone" type="tel" placeholder="300 123 4567" required>
+        </label>
+        <label>
+          <span>Ciudad</span>
+          <input id="checkoutCity" name="city" type="text" placeholder="Ciudad de entrega" required>
+        </label>
+        <label>
+          <span>Pago</span>
+          <select id="checkoutPayment" name="payment" required>
+            <option value="transferencia">Transferencia</option>
+            <option value="tarjeta">Tarjeta</option>
+            <option value="contraentrega">Contraentrega coordinada</option>
+          </select>
+        </label>
+        <label>
+          <span>Notas del pedido</span>
+          <textarea id="checkoutNotes" name="notes" rows="3" placeholder="Ej. subir a un tercer piso o llamar antes de entregar"></textarea>
+        </label>
+        <div class="checkout-review" id="checkoutReview"></div>
+        <div class="checkout-actions">
+          <button class="button button-primary button-full" id="confirmCheckout" type="submit">Confirmar pedido</button>
+        </div>
+      </form>
+      <div class="checkout-success" id="checkoutSuccess" hidden></div>
+    </div>
+  </aside>
+
+  <section class="product-modal" id="productModal" aria-hidden="true">
+    <div class="product-modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="icon-button modal-close" id="closeModal" type="button" aria-label="Cerrar detalle">x</button>
+      <div class="product-modal-media">
+        <img id="modalImage" alt="">
+      </div>
+      <div class="product-modal-body">
+        <span class="eyebrow" id="modalCategory">Categoria</span>
+        <h2 id="modalTitle">Producto</h2>
+        <p id="modalDescription"></p>
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-meta">
+          <div>
+            <strong id="modalPrice">$0</strong>
+            <span id="modalInstallments"></span>
+          </div>
+          <span class="modal-rating" id="modalRating">★ 0.0</span>
+        </div>
+        <div class="modal-actions">
+          <button class="button button-primary" id="modalAddToCart" type="button">Agregar al carrito</button>
+          <a class="button button-whatsapp" id="modalWhatsapp" href="#" target="_blank" rel="noreferrer">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp">
+    <span>WhatsApp</span>
+  </a>
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+  <div class="overlay" id="overlay" hidden></div>
+
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <div class="product-media">
+        <span class="product-badge"></span>
+        <img alt="" loading="lazy">
+      </div>
+      <div class="product-body">
+        <div class="product-meta">
+          <span class="product-category"></span>
+          <span class="product-rating"></span>
+        </div>
+        <h3 class="product-name"></h3>
+        <p class="product-description"></p>
+        <div class="product-tags"></div>
+        <div class="product-footer">
+          <div>
+            <strong class="product-price"></strong>
+            <span class="product-installments"></span>
+          </div>
+        </div>
+        <div class="product-actions">
+          <button class="button button-secondary view-product" type="button">Ver producto</button>
+          <button class="button button-primary add-to-cart" type="button">Agregar</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <template id="featuredCardTemplate">
+    <article class="featured-card">
+      <div>
+        <span class="eyebrow">Destacado</span>
+        <h3 class="featured-name"></h3>
+        <p class="featured-copy"></p>
+      </div>
+      <div class="featured-footer">
+        <span class="featured-price"></span>
+        <button class="button button-secondary featured-action" type="button">Ver producto</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="data.js"></script>
+  <script src="store.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
