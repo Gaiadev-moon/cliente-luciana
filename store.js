@@ -3,6 +3,8 @@
   const state = { cart: loadCart(), activeProductId: null, checkoutOpen: false, orderComplete: false };
 
   const cartButton = document.getElementById("cartButton");
+  const menuToggle = document.getElementById("menuToggle");
+  const mainNav = document.getElementById("mainNav");
   const cartDrawer = document.getElementById("cartDrawer");
   const closeCart = document.getElementById("closeCart");
   const overlay = document.getElementById("overlay");
@@ -34,15 +36,24 @@
   const toast = document.getElementById("toast");
   let toastTimeout = null;
 
-  ["whatsappFloat", "headerWhatsapp", "bannerWhatsapp", "shopWhatsapp"].forEach((id) => {
+  document.querySelectorAll("[data-whatsapp-link]").forEach((element) => {
+    element.href = buildWhatsappUrl();
+  });
+  ["bannerWhatsapp"].forEach((id) => {
     const element = document.getElementById(id);
     if (element) element.href = buildWhatsappUrl();
   });
 
   if (cartButton) cartButton.addEventListener("click", openCart);
+  if (menuToggle) menuToggle.addEventListener("click", toggleMenu);
   if (closeCart) closeCart.addEventListener("click", closePanels);
   if (closeModal) closeModal.addEventListener("click", closePanels);
   if (overlay) overlay.addEventListener("click", closePanels);
+  if (mainNav) {
+    mainNav.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => closePanels());
+    });
+  }
   if (modalAddToCart) {
     modalAddToCart.addEventListener("click", () => {
       if (!state.activeProductId) return;
@@ -125,6 +136,7 @@
   }
 
   function openCart() {
+    closeMenu();
     closeModalPanel();
     if (!cartDrawer) return;
     cartDrawer.classList.add("open");
@@ -162,7 +174,28 @@
   function closePanels() {
     closeCartPanel();
     closeModalPanel();
+    closeMenu();
     if (overlay) overlay.hidden = true;
+  }
+
+  function toggleMenu() {
+    if (!mainNav) return;
+    if (mainNav.classList.contains("open")) {
+      closeMenu();
+      if (overlay) overlay.hidden = true;
+      return;
+    }
+    closeCartPanel();
+    closeModalPanel();
+    mainNav.classList.add("open");
+    menuToggle?.setAttribute("aria-expanded", "true");
+    if (overlay) overlay.hidden = false;
+  }
+
+  function closeMenu() {
+    if (!mainNav) return;
+    mainNav.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
   }
 
   function closeCartPanel() {

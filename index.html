@@ -19,22 +19,23 @@
           <small>Muebles calidos para cada ambiente</small>
         </div>
       </a>
-      <span class="demo-badge">Demo para Luciana</span>
-      <nav class="main-nav" aria-label="Principal">
+      <div class="topbar-meta">
+        <span class="demo-badge">Demo para Luciana</span>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="main-nav" id="mainNav" aria-label="Principal">
         <a class="nav-link is-active" href="index.html">Inicio</a>
         <a class="nav-link" href="tienda.html">Tienda</a>
         <a class="nav-link" href="#best-sellers">Mas vendidos</a>
         <a class="nav-link" href="#new-arrivals">Novedades</a>
+        <a class="nav-link nav-link-mobile" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
       <div class="header-actions">
-        <a class="button button-secondary button-small" id="headerWhatsapp" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
-        <button class="cart-button" id="cartButton" type="button" aria-label="Abrir carrito">
-          <span class="cart-button-copy">
-            <small>Compra</small>
-            <strong>Ver carrito</strong>
-          </span>
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
+        <a class="button button-secondary button-small" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </header>
 
@@ -230,9 +231,13 @@
     </div>
   </section>
 
-  <a class="whatsapp-float" id="whatsappFloat" href="#" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp">
+  <a class="whatsapp-float" data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp">
     <span>WhatsApp</span>
   </a>
+  <button class="cart-float" id="cartButton" type="button" aria-label="Abrir carrito">
+    <span class="cart-float-icon">🛒</span>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
   <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
   <div class="overlay" id="overlay" hidden></div>
 
