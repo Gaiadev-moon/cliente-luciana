@@ -5,6 +5,7 @@
   const cartButton = document.getElementById("cartButton");
   const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
+  const navClose = document.getElementById("navClose");
   const cartDrawer = document.getElementById("cartDrawer");
   const closeCart = document.getElementById("closeCart");
   const overlay = document.getElementById("overlay");
@@ -46,6 +47,7 @@
 
   if (cartButton) cartButton.addEventListener("click", openCart);
   if (menuToggle) menuToggle.addEventListener("click", toggleMenu);
+  if (navClose) navClose.addEventListener("click", closeMenu);
   if (closeCart) closeCart.addEventListener("click", closePanels);
   if (closeModal) closeModal.addEventListener("click", closePanels);
   if (overlay) overlay.addEventListener("click", closePanels);
@@ -182,14 +184,12 @@
     if (!mainNav) return;
     if (mainNav.classList.contains("open")) {
       closeMenu();
-      if (overlay) overlay.hidden = true;
       return;
     }
     closeCartPanel();
     closeModalPanel();
     mainNav.classList.add("open");
     menuToggle?.setAttribute("aria-expanded", "true");
-    if (overlay) overlay.hidden = false;
   }
 
   function closeMenu() {
