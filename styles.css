@@ -23,6 +23,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: "Manrope", sans-serif;
   color: var(--text);
   background:
@@ -669,8 +670,7 @@ a { color: inherit; }
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgba(41, 29, 22, 0.34);
-  backdrop-filter: blur(2px);
+  background: rgba(41, 29, 22, 0.18);
 }
 
 .whatsapp-float {
@@ -992,7 +992,11 @@ a { color: inherit; }
 }
 
 @media (max-width: 780px) {
-  .page-shell { width: min(calc(100% - 20px), var(--max-width)); }
+  .page-shell {
+    width: calc(100% - 12px);
+    margin-left: 6px;
+    margin-right: 6px;
+  }
   .topbar,
   .main-nav,
   .header-actions,
