@@ -15,6 +15,8 @@
   const resultsTitle = document.getElementById("resultsTitle");
   const resultsSummary = document.getElementById("resultsSummary");
   const resetFilters = document.getElementById("resetFilters");
+  const mobileFilterToggle = document.getElementById("mobileFilterToggle");
+  const filtersPanel = document.querySelector(".filters-panel");
 
   const state = {
     search: "",
@@ -73,6 +75,12 @@
     });
 
     resetFilters.addEventListener("click", resetAllFilters);
+    if (mobileFilterToggle && filtersPanel) {
+      mobileFilterToggle.addEventListener("click", () => {
+        filtersPanel.classList.toggle("is-open");
+        mobileFilterToggle.textContent = filtersPanel.classList.contains("is-open") ? "Cerrar filtros" : "Filtros";
+      });
+    }
   }
 
   function renderCatalog() {
