@@ -8,7 +8,38 @@
   const paymentForm = document.getElementById("paymentForm");
   const paymentSuccess = document.getElementById("paymentSuccess");
   const methodButtons = [...document.querySelectorAll(".payment-method")];
+  const menuToggle = document.getElementById("menuToggle");
+  const navClose = document.getElementById("navClose");
+  const mainNav = document.getElementById("mainNav");
   let activeMethod = "visa";
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", () => {
+      const nextState = !mainNav.classList.contains("open");
+      mainNav.classList.toggle("open", nextState);
+      menuToggle.setAttribute("aria-expanded", String(nextState));
+    });
+  }
+
+  if (navClose && mainNav) {
+    navClose.addEventListener("click", () => {
+      mainNav.classList.remove("open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!mainNav || !menuToggle || !mainNav.classList.contains("open")) return;
+    if (mainNav.contains(event.target) || menuToggle.contains(event.target)) return;
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !mainNav) return;
+    mainNav.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  });
 
   if (!orderRaw) {
     if (paymentEmpty) paymentEmpty.hidden = false;

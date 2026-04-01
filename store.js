@@ -70,6 +70,14 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closePanels();
   });
+  document.addEventListener("click", (event) => {
+    if (!mainNav || !menuToggle || !mainNav.classList.contains("open")) return;
+    if (mainNav.contains(event.target) || menuToggle.contains(event.target)) return;
+    closeMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 780) closeMenu();
+  });
 
   renderCart();
 

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260328c">
+  <link rel="stylesheet" href="styles.css?v=20260401a">
 </head>
 <body data-page="payment">
   <div class="page-shell">
@@ -19,8 +19,25 @@
           <small>Muebles calidos para cada ambiente</small>
         </div>
       </a>
-      <span class="demo-badge">Demo para Luciana</span>
-      <nav class="main-nav" aria-label="Principal">
+      <div class="topbar-meta">
+        <span class="demo-badge">Demo para Luciana</span>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+          <span class="menu-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="menu-toggle-text">Menu</span>
+        </button>
+      </div>
+      <nav class="main-nav" id="mainNav" aria-label="Principal">
+        <div class="nav-panel-header">
+          <div>
+            <span class="eyebrow">Navegacion</span>
+            <strong>Continua tu compra</strong>
+          </div>
+          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">×</button>
+        </div>
         <a class="nav-link" href="index.html">Inicio</a>
         <a class="nav-link" href="tienda.html">Tienda</a>
         <a class="nav-link is-active" href="pago.html">Pago</a>
@@ -35,7 +52,7 @@
         <div>
           <span class="eyebrow">Pago</span>
           <h1>Revisa tu pedido y elige el medio de pago.</h1>
-          <p>Esta vista muestra el cierre de compra con tarjetas y medios habituales para la presentacion.</p>
+          <p>Confirma los datos del pedido y completa el pago con el medio que prefieras.</p>
         </div>
       </section>
 
@@ -118,7 +135,7 @@
     </main>
   </div>
 
-  <script src="data.js?v=20260328c"></script>
-  <script src="payment.js?v=20260328c"></script>
+  <script src="data.js?v=20260401a"></script>
+  <script src="payment.js?v=20260401a"></script>
 </body>
 </html>

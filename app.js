@@ -76,9 +76,12 @@
 
     resetFilters.addEventListener("click", resetAllFilters);
     if (mobileFilterToggle && filtersPanel) {
+      mobileFilterToggle.setAttribute("aria-expanded", "false");
       mobileFilterToggle.addEventListener("click", () => {
         filtersPanel.classList.toggle("is-open");
-        mobileFilterToggle.textContent = filtersPanel.classList.contains("is-open") ? "Cerrar filtros" : "Filtros";
+        const isOpen = filtersPanel.classList.contains("is-open");
+        mobileFilterToggle.textContent = isOpen ? "Cerrar filtros" : "Filtros";
+        mobileFilterToggle.setAttribute("aria-expanded", String(isOpen));
       });
     }
   }
@@ -187,6 +190,11 @@
     sortFilter.value = "featured";
     priceRange.value = "4200000";
     priceValue.textContent = formatPrice(state.maxPrice);
+    if (filtersPanel && mobileFilterToggle && window.innerWidth <= 780) {
+      filtersPanel.classList.remove("is-open");
+      mobileFilterToggle.textContent = "Filtros";
+      mobileFilterToggle.setAttribute("aria-expanded", "false");
+    }
 
     renderCatalog();
   }
