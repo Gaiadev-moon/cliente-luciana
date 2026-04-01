@@ -382,6 +382,10 @@ a { color: inherit; }
   color: color-mix(in srgb, var(--premium-green) 72%, var(--text-soft) 28%);
 }
 
+.category-section-copy {
+  color: color-mix(in srgb, var(--premium-green) 64%, var(--text-soft) 36%);
+}
+
 .hero-actions { gap: 14px; margin-top: 30px; justify-content: flex-start; }
 
 .hero-metrics {
@@ -532,8 +536,17 @@ a { color: inherit; }
   line-height: 0.98;
 }
 
-.category-card p { margin: 0 0 18px; line-height: 1.7; }
-.category-card-link { color: var(--accent-strong); font-weight: 700; }
+.category-card p {
+  margin: 0 0 18px;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--premium-green) 58%, var(--text-soft) 42%);
+}
+
+.category-card-link {
+  color: var(--premium-green-strong);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
 
 .benefits article,
 .featured-card,
