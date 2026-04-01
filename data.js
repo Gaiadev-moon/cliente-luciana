@@ -17,7 +17,7 @@
   };
   const products = [
     { id: "sofa-aurora", name: "Sofa Aurora", category: "Sala", material: "Lino", price: 2890000, rating: 4.9, badge: "Top ventas", featured: true, isNew: false, description: "Sofa de tres puestos con apoyo lumbar suave y presencia calida para salas contemporaneas.", tags: ["3 puestos", "Beige calido", "Entrega rapida"], type: "sofa", image: "assets/images/catalog/catalog-01.jpg", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
-    { id: "sofa-alba", name: "Sofa Alba", category: "Sala", material: "Chenille", price: 3090000, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Sofa de volumen generoso con textura suave y presencia sobria.", tags: ["4 puestos", "Chenille", "Premium"], type: "sofa", image: "assets/images/catalog/catalog-02.jpg", imagePosition: "center 62%", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
+    { id: "sofa-alba", name: "Sofa Alba", category: "Sala", material: "Chenille", price: 3090000, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Sofa de volumen generoso con textura suave y presencia sobria.", tags: ["4 puestos", "Chenille", "Premium"], type: "sofa", image: "assets/images/catalog/catalog-02.jpg", imagePosition: "center 58%", imageScale: 1.18, palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
     { id: "butaca-duna", name: "Butaca Duna", category: "Sala", material: "Boucle", price: 1180000, rating: 4.8, badge: "Favorito", featured: false, isNew: false, description: "Butaca acento con respaldo envolvente, perfecta para recibidores o rincones de lectura.", tags: ["Boucle", "Acento", "Compacta"], type: "chair", image: "assets/images/catalog/catalog-06.jpg", palette: ["#e9d6c8", "#8b644d", "#fff9f3"] },
     { id: "mesa-centro-origen", name: "Mesa de Centro Origen", category: "Sala", material: "Nogal", price: 890000, rating: 4.7, badge: "Top ventas", featured: false, isNew: false, description: "Mesa de centro de formato ovalado para complementar sofas de tonos claros.", tags: ["Ovalada", "Nogal", "Sala"], type: "table", image: "assets/images/catalog/catalog-09.jpg", palette: ["#e3cfbe", "#7a563f", "#fbf5ef"] },
     { id: "mesa-auxiliar-senda", name: "Mesa Auxiliar Senda", category: "Sala", material: "Madera", price: 520000, rating: 4.5, badge: "Accesorio", featured: false, isNew: true, description: "Mesa auxiliar ligera para apoyo junto a sofas o butacas.", tags: ["Auxiliar", "Ligera", "Versatil"], type: "table", image: "assets/images/catalog/catalog-10.jpg", palette: ["#e3cfbe", "#7a563f", "#fbf5ef"] },
@@ -94,7 +94,6 @@
     const config = plansByCategory[product.category] || fallback;
     const effectiveInstallments = product.price >= 2800000 ? Math.max(config.installments, 12) : config.installments;
     const installmentAmount = roundToThousands(product.price / effectiveInstallments);
-    const cashPrice = roundToThousands(product.price * 0.9);
     const leadMethod = config.leadMethod;
     const promoCopyByMethod = {
       naranjax: `Promo ${effectiveInstallments} cuotas con Naranja X`,
@@ -108,7 +107,7 @@
     return {
       promoHeadline: promoCopyByMethod[leadMethod] || `${effectiveInstallments} cuotas disponibles`,
       installmentsText: `${effectiveInstallments} cuotas de ${formatPrice(installmentAmount)}`,
-      cashText: `Contado transferencia: ${formatPrice(cashPrice)}`,
+      cashText: "Precio publicado al contado",
       methods: config.methods.map((key) => PAYMENT_BRANDS[key]).filter(Boolean)
     };
   }

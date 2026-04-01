@@ -74,6 +74,7 @@
       image.src = createProductImage(product);
       image.alt = product.name;
       image.style.objectPosition = product.imagePosition || "center";
+      image.style.setProperty("--image-base-scale", String(product.imageScale || 1));
       card.querySelector(".featured-name").textContent = product.name;
       card.querySelector(".featured-copy").textContent = product.description;
       card.querySelector(".featured-price").textContent = formatPrice(product.price);
@@ -88,6 +89,7 @@
     image.src = createProductImage(product);
     image.alt = product.name;
     image.style.objectPosition = product.imagePosition || "center";
+    image.style.setProperty("--image-base-scale", String(product.imageScale || 1));
     card.querySelector(".product-category").textContent = product.category;
     card.querySelector(".product-rating").textContent = `\u2605 ${product.rating.toFixed(1)}`;
     card.querySelector(".product-name").textContent = product.name;

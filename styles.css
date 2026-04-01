@@ -419,6 +419,36 @@ a { color: inherit; }
   border-radius: var(--radius-lg);
 }
 
+.benefits article {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(78, 118, 96, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(255, 251, 246, 0.98), rgba(245, 237, 229, 0.96));
+}
+
+.benefits article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--premium-green-strong), rgba(94, 141, 116, 0.8));
+}
+
+.benefits article h2 {
+  margin: 0 0 10px;
+}
+
+.benefits article p {
+  margin: 0;
+  color: var(--premium-green-strong);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
 .hero-metrics article strong {
   color: var(--premium-green-strong);
 }
@@ -580,6 +610,7 @@ a { color: inherit; }
   height: 100%;
   min-height: 210px;
   object-fit: cover;
+  transform: scale(var(--image-base-scale, 1));
 }
 
 .featured-pill {
@@ -1006,9 +1037,10 @@ a { color: inherit; }
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(var(--image-base-scale, 1));
   transition: transform 320ms ease;
 }
-.product-card:hover .product-media img { transform: scale(1.03); }
+.product-card:hover .product-media img { transform: scale(calc(var(--image-base-scale, 1) + 0.03)); }
 
 .product-badge {
   position: absolute;

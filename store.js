@@ -162,6 +162,7 @@
     modalImage.src = createProductImage(product);
     modalImage.alt = product.name;
     modalImage.style.objectPosition = product.imagePosition || "center";
+    modalImage.style.setProperty("--image-base-scale", String(product.imageScale || 1));
     modalCategory.textContent = product.category;
     modalTitle.textContent = product.name;
     modalDescription.textContent = product.description;
@@ -281,7 +282,8 @@
         price: product.price,
         quantity,
         image: createProductImage(product),
-        imagePosition: product.imagePosition || "center"
+        imagePosition: product.imagePosition || "center",
+        imageScale: product.imageScale || 1
       })),
       subtotal: details.subtotal,
       shipping: details.shipping,
