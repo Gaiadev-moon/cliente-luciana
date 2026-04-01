@@ -5,6 +5,16 @@
   const CONTACT_INSTAGRAM = "https://www.instagram.com/roblecasa";
   const CONTACT_PINTEREST = "https://www.pinterest.com/roblecasa";
   const CONTACT_FACEBOOK = "https://www.facebook.com/roblecasa";
+  const PAYMENT_BRANDS = {
+    visa: { key: "visa", label: "Visa", short: "V", className: "payment-logo-visa" },
+    mastercard: { key: "mastercard", label: "Mastercard", short: "MC", className: "payment-logo-mastercard" },
+    amex: { key: "amex", label: "AMEX", short: "AX", className: "payment-logo-amex" },
+    mercadopago: { key: "mercadopago", label: "Mercado Pago", short: "MP", className: "payment-logo-mercadopago" },
+    naranjax: { key: "naranjax", label: "Naranja X", short: "NX", className: "payment-logo-naranja" },
+    sucredito: { key: "sucredito", label: "Sucredito", short: "SC", className: "payment-logo-sucredito" },
+    credicash: { key: "credicash", label: "Credicash", short: "CC", className: "payment-logo-credicash" },
+    transferencia: { key: "transferencia", label: "Transferencia", short: "TR", className: "payment-logo-transfer" }
+  };
   const products = [
     { id: "sofa-aurora", name: "Sofa Aurora", category: "Sala", material: "Lino", price: 2890000, rating: 4.9, badge: "Top ventas", featured: true, isNew: false, description: "Sofa de tres puestos con apoyo lumbar suave y presencia calida para salas contemporaneas.", tags: ["3 puestos", "Beige calido", "Entrega rapida"], type: "sofa", image: "assets/images/catalog/catalog-01.jpg", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
     { id: "sofa-alba", name: "Sofa Alba", category: "Sala", material: "Chenille", price: 3090000, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Sofa de volumen generoso con textura suave y presencia sobria.", tags: ["4 puestos", "Chenille", "Premium"], type: "sofa", image: "assets/images/catalog/catalog-02.jpg", imagePosition: "center 62%", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
@@ -41,6 +51,7 @@
   const loadCart = () => { try { return JSON.parse(localStorage.getItem("roble-casa-cart")) || {}; } catch { return {}; } };
   const saveCart = (cart) => localStorage.setItem("roble-casa-cart", JSON.stringify(cart));
   const formatPrice = (price) => currencyFormatter.format(price);
+  const roundToThousands = (value) => Math.round(value / 1000) * 1000;
   const buildWhatsappUrl = (product) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(product ? `Hola, quiero informacion sobre ${product.name} (${formatPrice(product.price)}).` : "Hola, quiero asesoria para elegir muebles de Roble Casa.")}`;
   const buildContactMailto = ({ name = "", email = "", phone = "", subject = "Consulta desde la web", message = "" } = {}) => {
     const lines = [
@@ -70,6 +81,38 @@
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">${common}${illustrations[product.type] || illustrations.chair}</svg>`)}`;
   }
 
+  function getProductFinancing(product) {
+    const plansByCategory = {
+      Sala: { installments: 12, leadMethod: "naranjax", methods: ["visa", "mastercard", "naranjax", "mercadopago"] },
+      Comedor: { installments: 9, leadMethod: "mercadopago", methods: ["visa", "mastercard", "mercadopago", "transferencia"] },
+      Dormitorio: { installments: 12, leadMethod: "sucredito", methods: ["visa", "amex", "naranjax", "sucredito"] },
+      Estudio: { installments: 6, leadMethod: "credicash", methods: ["visa", "mastercard", "mercadopago", "credicash"] },
+      Decoracion: { installments: 6, leadMethod: "mercadopago", methods: ["visa", "mastercard", "mercadopago", "transferencia"] }
+    };
+
+    const fallback = { installments: 6, leadMethod: "visa", methods: ["visa", "mastercard", "mercadopago", "transferencia"] };
+    const config = plansByCategory[product.category] || fallback;
+    const effectiveInstallments = product.price >= 2800000 ? Math.max(config.installments, 12) : config.installments;
+    const installmentAmount = roundToThousands(product.price / effectiveInstallments);
+    const cashPrice = roundToThousands(product.price * 0.9);
+    const leadMethod = config.leadMethod;
+    const promoCopyByMethod = {
+      naranjax: `Promo ${effectiveInstallments} cuotas con Naranja X`,
+      mercadopago: `${effectiveInstallments} cuotas con Mercado Pago`,
+      sucredito: `${effectiveInstallments} cuotas con Sucredito`,
+      credicash: `${effectiveInstallments} cuotas con Credicash`,
+      transferencia: "Precio especial por transferencia",
+      visa: `${effectiveInstallments} cuotas con Visa`
+    };
+
+    return {
+      promoHeadline: promoCopyByMethod[leadMethod] || `${effectiveInstallments} cuotas disponibles`,
+      installmentsText: `${effectiveInstallments} cuotas de ${formatPrice(installmentAmount)}`,
+      cashText: `Contado transferencia: ${formatPrice(cashPrice)}`,
+      methods: config.methods.map((key) => PAYMENT_BRANDS[key]).filter(Boolean)
+    };
+  }
+
   window.RobleData = {
     WHATSAPP_NUMBER,
     CONTACT_EMAIL,
@@ -77,10 +120,12 @@
     CONTACT_INSTAGRAM,
     CONTACT_PINTEREST,
     CONTACT_FACEBOOK,
+    PAYMENT_BRANDS,
     products,
     loadCart,
     saveCart,
     formatPrice,
+    getProductFinancing,
     buildWhatsappUrl,
     buildContactMailto,
     createProductImage

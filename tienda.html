@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401b">
+  <link rel="stylesheet" href="styles.css?v=20260401c">
 </head>
 <body data-page="shop">
   <div class="page-shell">
@@ -42,7 +42,7 @@
         <a class="nav-link is-active" href="tienda.html">Tienda</a>
         <a class="nav-link" href="index.html#best-sellers">Mas vendidos</a>
         <a class="nav-link" href="index.html#new-arrivals">Proximamente</a>
-        <a class="nav-link" href="index.html#quienes-somos">Quienes somos</a>
+        <a class="nav-link" href="nosotros.html">Nosotros</a>
         <a class="nav-link nav-link-mobile" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
       <div class="header-actions">
@@ -71,7 +71,10 @@
                 <span class="eyebrow">Refina tu busqueda</span>
                 <h3>Filtrar productos</h3>
               </div>
-              <button class="button button-ghost" id="resetFilters" type="button">Limpiar</button>
+              <div class="filters-actions">
+                <button class="button button-ghost" id="resetFilters" type="button">Limpiar</button>
+                <button class="button button-ghost button-small filter-close" id="closeFilters" type="button">Cerrar</button>
+              </div>
             </div>
             <div class="filter-group">
               <label for="searchInput">Buscar</label>
@@ -251,9 +254,14 @@
         <p class="product-description"></p>
         <div class="product-tags"></div>
         <div class="product-footer">
-          <div>
+          <div class="product-price-box">
             <strong class="product-price"></strong>
             <span class="product-installments"></span>
+          </div>
+          <div class="product-financing">
+            <span class="product-promo-headline"></span>
+            <div class="product-payment-logos"></div>
+            <span class="product-transfer-price"></span>
           </div>
         </div>
         <div class="product-actions">
@@ -266,10 +274,16 @@
 
   <template id="featuredCardTemplate">
     <article class="featured-card">
-      <div>
-        <span class="eyebrow">Destacado</span>
-        <h3 class="featured-name"></h3>
-        <p class="featured-copy"></p>
+      <div class="featured-media">
+        <img alt="" loading="lazy">
+        <span class="featured-pill">Destacado</span>
+      </div>
+      <div class="featured-content">
+        <div>
+          <span class="eyebrow">Destacado</span>
+          <h3 class="featured-name"></h3>
+          <p class="featured-copy"></p>
+        </div>
       </div>
       <div class="featured-footer">
         <span class="featured-price"></span>
@@ -278,8 +292,8 @@
     </article>
   </template>
 
-  <script src="data.js?v=20260401b"></script>
-  <script src="store.js?v=20260401b"></script>
-  <script src="app.js?v=20260401b"></script>
+  <script src="data.js?v=20260401c"></script>
+  <script src="store.js?v=20260401c"></script>
+  <script src="app.js?v=20260401c"></script>
 </body>
 </html>

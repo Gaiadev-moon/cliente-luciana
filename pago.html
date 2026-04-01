@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401b">
+  <link rel="stylesheet" href="styles.css?v=20260401c">
 </head>
 <body data-page="payment">
   <div class="page-shell">
@@ -40,7 +40,7 @@
         </div>
         <a class="nav-link" href="index.html">Inicio</a>
         <a class="nav-link" href="tienda.html">Tienda</a>
-        <a class="nav-link" href="index.html#quienes-somos">Contacto</a>
+        <a class="nav-link" href="nosotros.html">Nosotros</a>
         <a class="nav-link is-active" href="pago.html">Pago</a>
       </nav>
       <div class="header-actions">
@@ -88,20 +88,36 @@
 
           <div class="payment-methods">
             <button class="payment-method is-active" data-method="visa" type="button">
-              <span class="payment-brand payment-brand-visa">VISA</span>
+              <span class="payment-brand payment-brand-visa"><i class="payment-logo payment-logo-visa">V</i>VISA</span>
               <small>Credito y debito</small>
             </button>
             <button class="payment-method" data-method="mastercard" type="button">
-              <span class="payment-brand payment-brand-mastercard">Mastercard</span>
+              <span class="payment-brand payment-brand-mastercard"><i class="payment-logo payment-logo-mastercard">MC</i>Mastercard</span>
               <small>Credito y debito</small>
             </button>
             <button class="payment-method" data-method="amex" type="button">
-              <span class="payment-brand payment-brand-amex">AMEX</span>
+              <span class="payment-brand payment-brand-amex"><i class="payment-logo payment-logo-amex">AX</i>AMEX</span>
               <small>Tarjeta internacional</small>
             </button>
-            <button class="payment-method" data-method="pse" type="button">
-              <span class="payment-brand payment-brand-pse">PSE</span>
-              <small>Transferencia inmediata</small>
+            <button class="payment-method" data-method="mercadopago" type="button">
+              <span class="payment-brand payment-brand-mercadopago"><i class="payment-logo payment-logo-mercadopago">MP</i>Mercado Pago</span>
+              <small>Billetera y checkout</small>
+            </button>
+            <button class="payment-method" data-method="naranjax" type="button">
+              <span class="payment-brand payment-brand-naranja"><i class="payment-logo payment-logo-naranja">NX</i>Naranja X</span>
+              <small>Tarjeta argentina</small>
+            </button>
+            <button class="payment-method" data-method="sucredito" type="button">
+              <span class="payment-brand payment-brand-sucredito"><i class="payment-logo payment-logo-sucredito">SC</i>Sucredito</span>
+              <small>Financiacion local</small>
+            </button>
+            <button class="payment-method" data-method="credicash" type="button">
+              <span class="payment-brand payment-brand-credicash"><i class="payment-logo payment-logo-credicash">CC</i>Credicash</span>
+              <small>Credito inmediato</small>
+            </button>
+            <button class="payment-method" data-method="transferencia" type="button">
+              <span class="payment-brand payment-brand-transfer"><i class="payment-logo payment-logo-transfer">TR</i>Transferencia</span>
+              <small>Pago bancario</small>
             </button>
           </div>
 
@@ -166,7 +182,7 @@
     </main>
   </div>
 
-  <script src="data.js?v=20260401b"></script>
-  <script src="payment.js?v=20260401b"></script>
+  <script src="data.js?v=20260401c"></script>
+  <script src="payment.js?v=20260401c"></script>
 </body>
 </html>

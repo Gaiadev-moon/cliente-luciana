@@ -1,5 +1,5 @@
 (() => {
-  const { products, loadCart, saveCart, formatPrice, buildWhatsappUrl, createProductImage } = window.RobleData;
+  const { products, loadCart, saveCart, formatPrice, buildWhatsappUrl, createProductImage, getProductFinancing } = window.RobleData;
   const state = { cart: loadCart(), activeProductId: null, checkoutOpen: false, orderComplete: false };
 
   const cartButton = document.getElementById("cartButton");
@@ -166,7 +166,7 @@
     modalTitle.textContent = product.name;
     modalDescription.textContent = product.description;
     modalPrice.textContent = formatPrice(product.price);
-    modalInstallments.textContent = `Hasta 6 cuotas de ${formatPrice(Math.round(product.price / 6))}`;
+    modalInstallments.textContent = getProductFinancing(product).installmentsText;
     modalRating.textContent = `\u2605 ${product.rating.toFixed(1)}`;
     modalTags.innerHTML = "";
     product.tags.forEach((tag) => {

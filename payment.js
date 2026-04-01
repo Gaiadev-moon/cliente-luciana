@@ -119,7 +119,11 @@
       visa: "Visa",
       mastercard: "Mastercard",
       amex: "American Express",
-      pse: "PSE"
+      mercadopago: "Mercado Pago",
+      naranjax: "Naranja X",
+      sucredito: "Sucredito",
+      credicash: "Credicash",
+      transferencia: "Transferencia"
     }[activeMethod] || "Tarjeta";
 
     paymentForm.hidden = true;

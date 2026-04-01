@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401b">
+  <link rel="stylesheet" href="styles.css?v=20260401c">
 </head>
 <body data-page="home">
   <div class="page-shell">
@@ -42,7 +42,7 @@
         <a class="nav-link" href="tienda.html">Tienda</a>
         <a class="nav-link" href="#best-sellers">Mas vendidos</a>
         <a class="nav-link" href="#new-arrivals">Proximamente</a>
-        <a class="nav-link" href="#quienes-somos">Quienes somos</a>
+        <a class="nav-link" href="nosotros.html">Nosotros</a>
         <a class="nav-link nav-link-mobile" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
       <div class="header-actions">
@@ -113,9 +113,9 @@
           </div>
         </article>
         <article class="payment-promo-card payment-promo-card-accent">
-          <span class="eyebrow">Promos Argentina</span>
-          <h2>Cuotas reales, promos por medio de pago y precio contado.</h2>
-          <p>Tomamos referencias habituales del mercado argentino para comunicar promos con mas claridad: Naranja X Plan Z, cuotas con Mercado Pago y beneficios por transferencia o pago al contado.</p>
+          <span class="eyebrow">&#161;Aprovecha!</span>
+          <h2>Promos activas para cerrar mejor tu compra.</h2>
+          <p>Consulta las cuotas disponibles por producto, beneficios por transferencia y promos vigentes segun el medio de pago.</p>
           <div class="payment-promo-stats">
             <div><strong>3x</strong><span>Plan Z Naranja X</span></div>
             <div><strong>3x</strong><span>Mercado Pago</span></div>
@@ -172,80 +172,17 @@
         </article>
       </section>
 
-      <section class="about-section" id="quienes-somos">
-        <div class="section-heading">
+      <section class="about-preview-section">
+        <article class="about-preview-card">
           <div>
-            <span class="eyebrow">Quienes somos</span>
-            <h2>Una tienda pensada para vender muebles con claridad y buena presentacion.</h2>
+            <span class="eyebrow">Nosotros</span>
+            <h2>Conoce la tienda, nuestros canales de contacto y como acompanamos cada compra.</h2>
+            <p>Movimos la informacion institucional, redes y formulario a una pagina propia para que el inicio quede mas claro y mejor ordenado.</p>
           </div>
-          <p class="section-copy-green">Roble Casa trabaja una seleccion calida, sobria y funcional para que el cliente pueda comparar, consultar y comprar sin perder tiempo entre datos confusos o fichas vacias.</p>
-        </div>
-
-        <div class="about-layout">
-          <article class="about-story">
-            <h3>Curamos producto, acompanamos la decision y cerramos la entrega con orden.</h3>
-            <p>La tienda esta construida para mostrar piezas con mejor contexto visual, informacion concreta de compra y un canal de atencion directo. No buscamos solo exhibir catalogo: buscamos que elegir un mueble sea mas simple.</p>
-            <div class="about-points">
-              <span>Asesoria por WhatsApp</span>
-              <span>Consulta por mail</span>
-              <span>Cuotas y pagos claros</span>
-              <span>Entrega coordinada</span>
-            </div>
-          </article>
-
-          <div class="contact-stack">
-            <article class="contact-card">
-              <span class="eyebrow">Contacto</span>
-              <h3>Habla con el equipo</h3>
-              <a class="contact-link" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp directo</a>
-              <a class="contact-link" href="tel:+573001234567">+57 300 123 4567</a>
-              <a class="contact-link" data-contact-email href="mailto:ventas@roblecasa.com">ventas@roblecasa.com</a>
-            </article>
-
-            <article class="contact-card">
-              <span class="eyebrow">Redes</span>
-              <h3>Sigue la tienda</h3>
-              <div class="social-links">
-                <a href="https://www.instagram.com/roblecasa" target="_blank" rel="noreferrer">Instagram</a>
-                <a href="https://www.pinterest.com/roblecasa" target="_blank" rel="noreferrer">Pinterest</a>
-                <a href="https://www.facebook.com/roblecasa" target="_blank" rel="noreferrer">Facebook</a>
-              </div>
-            </article>
+          <div class="cta-actions">
+            <a class="button button-primary" href="nosotros.html">Ir a quienes somos</a>
+            <a class="button button-secondary" data-whatsapp-link href="#" target="_blank" rel="noreferrer">Hablar por WhatsApp</a>
           </div>
-        </div>
-
-        <article class="contact-form-card">
-          <div class="contact-form-copy">
-            <span class="eyebrow">Consulta por mail</span>
-            <h3>Cuéntanos qué ambiente estás armando y te respondemos con opciones concretas.</h3>
-            <p>El formulario abre tu correo con el mensaje listo para enviar, así puedes consultar materiales, medidas, tiempos y promociones en un paso.</p>
-          </div>
-          <form class="contact-form" id="contactForm">
-            <label>
-              <span>Nombre</span>
-              <input id="contactName" name="name" type="text" placeholder="Tu nombre" required>
-            </label>
-            <label>
-              <span>Correo</span>
-              <input id="contactEmail" name="email" type="email" placeholder="tu@email.com" required>
-            </label>
-            <label>
-              <span>Telefono</span>
-              <input id="contactPhone" name="phone" type="tel" placeholder="+57 300 123 4567">
-            </label>
-            <label>
-              <span>Asunto</span>
-              <input id="contactSubject" name="subject" type="text" placeholder="Quiero asesoramiento para mi living" required>
-            </label>
-            <label class="contact-form-message">
-              <span>Mensaje</span>
-              <textarea id="contactMessage" name="message" rows="5" placeholder="Cuéntanos medidas, estilo y tipo de mueble que buscas." required></textarea>
-            </label>
-            <div class="contact-form-actions">
-              <button class="button button-primary" type="submit">Enviar consulta por mail</button>
-              <p id="contactFeedback">Si prefieres respuesta inmediata, también atendemos por WhatsApp.</p>
-            </div>
-          </form>
         </article>
       </section>
 
@@ -385,9 +322,14 @@
         <p class="product-description"></p>
         <div class="product-tags"></div>
         <div class="product-footer">
-          <div>
+          <div class="product-price-box">
             <strong class="product-price"></strong>
             <span class="product-installments"></span>
+          </div>
+          <div class="product-financing">
+            <span class="product-promo-headline"></span>
+            <div class="product-payment-logos"></div>
+            <span class="product-transfer-price"></span>
           </div>
         </div>
         <div class="product-actions">
@@ -427,8 +369,8 @@
     </a>
   </template>
 
-  <script src="data.js?v=20260401b"></script>
-  <script src="store.js?v=20260401b"></script>
-  <script src="home.js?v=20260401b"></script>
+  <script src="data.js?v=20260401c"></script>
+  <script src="store.js?v=20260401c"></script>
+  <script src="home.js?v=20260401c"></script>
 </body>
 </html>

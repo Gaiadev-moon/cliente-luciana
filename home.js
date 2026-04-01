@@ -1,5 +1,5 @@
 (() => {
-  const { products, formatPrice, CONTACT_EMAIL, buildContactMailto } = window.RobleData;
+  const { products, formatPrice, CONTACT_EMAIL, buildContactMailto, getProductFinancing } = window.RobleData;
   const { createProductImage, addToCart, openCart, openProductModal, showToast } = window.RobleStore;
 
   const categoryGrid = document.getElementById("categoryGrid");
@@ -93,7 +93,20 @@
     card.querySelector(".product-name").textContent = product.name;
     card.querySelector(".product-description").textContent = product.description;
     card.querySelector(".product-price").textContent = formatPrice(product.price);
-    card.querySelector(".product-installments").textContent = `Hasta 6 cuotas de ${formatPrice(Math.round(product.price / 6))}`;
+    const financing = getProductFinancing(product);
+    card.querySelector(".product-installments").textContent = financing.installmentsText;
+    card.querySelector(".product-promo-headline").textContent = financing.promoHeadline;
+    card.querySelector(".product-transfer-price").textContent = financing.cashText;
+
+    const paymentLogos = card.querySelector(".product-payment-logos");
+    financing.methods.forEach((method) => {
+      const logo = document.createElement("span");
+      logo.className = `payment-logo ${method.className}`;
+      logo.textContent = method.short;
+      logo.setAttribute("aria-label", method.label);
+      logo.title = method.label;
+      paymentLogos.appendChild(logo);
+    });
 
     const tagsContainer = card.querySelector(".product-tags");
     product.tags.forEach((tag) => {
