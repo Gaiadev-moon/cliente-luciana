@@ -6,8 +6,8 @@
   <title>Roble Casa | Muebles premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401a">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260401b">
 </head>
 <body data-page="home">
   <div class="page-shell">
@@ -36,12 +36,13 @@
             <span class="eyebrow">Navegacion</span>
             <strong>Explora la tienda</strong>
           </div>
-          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">×</button>
+          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">x</button>
         </div>
         <a class="nav-link is-active" href="index.html">Inicio</a>
         <a class="nav-link" href="tienda.html">Tienda</a>
         <a class="nav-link" href="#best-sellers">Mas vendidos</a>
-        <a class="nav-link" href="#new-arrivals">Novedades</a>
+        <a class="nav-link" href="#new-arrivals">Proximamente</a>
+        <a class="nav-link" href="#quienes-somos">Quienes somos</a>
         <a class="nav-link nav-link-mobile" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
       <div class="header-actions">
@@ -52,9 +53,9 @@
     <main>
       <section class="hero hero-home" id="inicio">
         <div class="hero-copy">
-          <span class="eyebrow">Muebles para sala, comedor y dormitorio</span>
-          <h1>Muebles para espacios calidos, serenos y bien resueltos.</h1>
-          <p>Encuentra sofas, mesas, camas y piezas auxiliares con materiales nobles, medidas claras y una seleccion pensada para convivir bien en casa.</p>
+          <span class="eyebrow">Muebles para sala, comedor, dormitorio y estudio</span>
+          <h1>Muebles con presencia serena, materiales nobles y compra clara.</h1>
+          <p>Encuentra sofas, mesas, camas y piezas auxiliares con una estetica calida y un proceso de compra pensado para resolver medidas, pagos, entrega y acompanamiento comercial en un solo lugar.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="tienda.html">Ver tienda completa</a>
             <a class="button button-secondary" href="#best-sellers">Ir a mas vendidos</a>
@@ -62,27 +63,27 @@
           <div class="hero-metrics">
             <article>
               <strong>Entrega coordinada</strong>
-              <span>Fechas claras y seguimiento del pedido desde la compra.</span>
+              <span>Confirmamos fecha, acceso y ventana horaria antes del despacho.</span>
             </article>
             <article>
-              <strong>Pago seguro</strong>
-              <span>Resumen claro del pedido, total actualizado y opciones de pago antes de confirmar.</span>
+              <strong>Pagos y cuotas</strong>
+              <span>Tarjetas, transferencia y detalle del pedido antes de cobrar.</span>
             </article>
             <article>
-              <strong>Asesoria por WhatsApp</strong>
-              <span>Resolvemos medidas, materiales y combinaciones antes de comprar.</span>
+              <strong>Asesoria comercial</strong>
+              <span>Respondemos por WhatsApp y mail con medidas, materiales y disponibilidad.</span>
             </article>
           </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-showcase">
             <article class="showcase-card showcase-card-main">
-              <span>Ambientes coordinados</span>
-              <strong>Sofas, mesas y butacas pensados para convivir en un mismo espacio.</strong>
+              <span>Seleccion de ambientes</span>
+              <strong>Sofas, mesas y apoyos en una misma linea visual para que la compra se vea coherente desde el primer vistazo.</strong>
             </article>
             <article class="showcase-card showcase-card-side">
-              <span>Compra informada</span>
-              <strong>Modelos con medidas claras, cuotas y contacto directo si necesitas ayuda.</strong>
+              <span>Compra bien resuelta</span>
+              <strong>Pagos, cuotas, entrega y consulta directa para decidir con mas contexto.</strong>
             </article>
             <div class="showcase-scene">
               <div class="scene-panel"></div>
@@ -93,6 +94,30 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="payment-promo-grid">
+        <article class="payment-promo-card">
+          <span class="eyebrow">Medios de pago</span>
+          <h2>Tarjetas, transferencia y cuotas disponibles.</h2>
+          <p>Aceptamos Visa, Mastercard, AMEX y transferencia con confirmacion de pedido antes del despacho.</p>
+          <div class="payment-promo-tags">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>AMEX</span>
+            <span>PSE</span>
+          </div>
+        </article>
+        <article class="payment-promo-card payment-promo-card-accent">
+          <span class="eyebrow">Beneficios</span>
+          <h2>Promociones activas, cuotas y seguimiento comercial.</h2>
+          <p>Combinamos precio, claridad de compra y acompanamiento real para que el cierre de venta se sienta simple.</p>
+          <div class="payment-promo-stats">
+            <div><strong>6x</strong><span>Cuotas</span></div>
+            <div><strong>Top</strong><span>Ofertas</span></div>
+            <div><strong>48 h</strong><span>Respuesta</span></div>
+          </div>
+        </article>
       </section>
 
       <section class="home-section">
@@ -120,26 +145,103 @@
       <section class="home-section" id="new-arrivals">
         <div class="section-heading">
           <div>
-            <span class="eyebrow">Novedades</span>
-            <h2>Recien incorporados</h2>
+            <span class="eyebrow">Proximamente</span>
+            <h2>Piezas que llegan a la nueva coleccion</h2>
           </div>
-          <p>Nuevos ingresos para renovar sala, comedor y estudio con la misma linea visual de la marca.</p>
+          <p>Modelos seleccionados que ya puedes consultar con imagen, precio y disponibilidad estimada.</p>
         </div>
         <div class="featured-strip content-strip" id="newArrivalGrid"></div>
       </section>
 
       <section class="benefits content-strip">
         <article>
-          <h2>Entrega coordinada</h2>
-          <p>Coordinamos fecha y franja horaria para una llegada ordenada y sin sorpresas.</p>
-        </article>
-        <article>
           <h2>Pago seguro</h2>
-          <p>Revisa subtotal, envio y datos de compra antes de confirmar tu pedido.</p>
+          <p>Resumen de compra, total actualizado y medios visibles antes de confirmar.</p>
         </article>
         <article>
-          <h2>Ayuda real antes de comprar</h2>
-          <p>Si tienes dudas sobre medidas o combinaciones, te respondemos por WhatsApp.</p>
+          <h2>Ofertas activas</h2>
+          <p>Seleccionamos referencias con mejor precio sin perder la linea premium de la tienda.</p>
+        </article>
+        <article>
+          <h2>Ayuda antes y despues</h2>
+          <p>Seguimos el pedido hasta la entrega y resolvemos dudas por mail o WhatsApp.</p>
+        </article>
+      </section>
+
+      <section class="about-section" id="quienes-somos">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Quienes somos</span>
+            <h2>Una tienda pensada para vender muebles con claridad y buena presentacion.</h2>
+          </div>
+          <p>Roble Casa trabaja una seleccion calida, sobria y funcional para que el cliente pueda comparar, consultar y comprar sin perder tiempo entre datos confusos o fichas vacias.</p>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-story">
+            <h3>Curamos producto, acompanamos la decision y cerramos la entrega con orden.</h3>
+            <p>La tienda esta construida para mostrar piezas con mejor contexto visual, informacion concreta de compra y un canal de atencion directo. No buscamos solo exhibir catalogo: buscamos que elegir un mueble sea mas simple.</p>
+            <div class="about-points">
+              <span>Asesoria por WhatsApp</span>
+              <span>Consulta por mail</span>
+              <span>Cuotas y pagos claros</span>
+              <span>Entrega coordinada</span>
+            </div>
+          </article>
+
+          <div class="contact-stack">
+            <article class="contact-card">
+              <span class="eyebrow">Contacto</span>
+              <h3>Habla con el equipo</h3>
+              <a class="contact-link" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp directo</a>
+              <a class="contact-link" href="tel:+573001234567">+57 300 123 4567</a>
+              <a class="contact-link" data-contact-email href="mailto:ventas@roblecasa.com">ventas@roblecasa.com</a>
+            </article>
+
+            <article class="contact-card">
+              <span class="eyebrow">Redes</span>
+              <h3>Sigue la tienda</h3>
+              <div class="social-links">
+                <a href="https://www.instagram.com/roblecasa" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.pinterest.com/roblecasa" target="_blank" rel="noreferrer">Pinterest</a>
+                <a href="https://www.facebook.com/roblecasa" target="_blank" rel="noreferrer">Facebook</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <article class="contact-form-card">
+          <div class="contact-form-copy">
+            <span class="eyebrow">Consulta por mail</span>
+            <h3>Cuéntanos qué ambiente estás armando y te respondemos con opciones concretas.</h3>
+            <p>El formulario abre tu correo con el mensaje listo para enviar, así puedes consultar materiales, medidas, tiempos y promociones en un paso.</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <label>
+              <span>Nombre</span>
+              <input id="contactName" name="name" type="text" placeholder="Tu nombre" required>
+            </label>
+            <label>
+              <span>Correo</span>
+              <input id="contactEmail" name="email" type="email" placeholder="tu@email.com" required>
+            </label>
+            <label>
+              <span>Telefono</span>
+              <input id="contactPhone" name="phone" type="tel" placeholder="+57 300 123 4567">
+            </label>
+            <label>
+              <span>Asunto</span>
+              <input id="contactSubject" name="subject" type="text" placeholder="Quiero asesoramiento para mi living" required>
+            </label>
+            <label class="contact-form-message">
+              <span>Mensaje</span>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Cuéntanos medidas, estilo y tipo de mueble que buscas." required></textarea>
+            </label>
+            <div class="contact-form-actions">
+              <button class="button button-primary" type="submit">Enviar consulta por mail</button>
+              <p id="contactFeedback">Si prefieres respuesta inmediata, también atendemos por WhatsApp.</p>
+            </div>
+          </form>
         </article>
       </section>
 
@@ -191,8 +293,16 @@
           <input id="checkoutPhone" name="phone" type="tel" placeholder="300 123 4567" required>
         </label>
         <label>
+          <span>Correo</span>
+          <input id="checkoutEmail" name="email" type="email" placeholder="tu@email.com" required>
+        </label>
+        <label>
           <span>Ciudad</span>
           <input id="checkoutCity" name="city" type="text" placeholder="Ciudad de entrega" required>
+        </label>
+        <label>
+          <span>Direccion de entrega</span>
+          <input id="checkoutAddress" name="address" type="text" placeholder="Calle, altura y referencia" required>
         </label>
         <label>
           <span>Pago</span>
@@ -231,7 +341,7 @@
             <strong id="modalPrice">$0</strong>
             <span id="modalInstallments"></span>
           </div>
-          <span class="modal-rating" id="modalRating">★ 0.0</span>
+          <span class="modal-rating" id="modalRating">&#9733; 0.0</span>
         </div>
         <div class="modal-actions">
           <button class="button button-primary" id="modalAddToCart" type="button">Agregar al carrito</button>
@@ -286,10 +396,16 @@
 
   <template id="featuredCardTemplate">
     <article class="featured-card">
-      <div>
-        <span class="eyebrow">Nuevo ingreso</span>
-        <h3 class="featured-name"></h3>
-        <p class="featured-copy"></p>
+      <div class="featured-media">
+        <img alt="" loading="lazy">
+        <span class="featured-pill">Llega pronto</span>
+      </div>
+      <div class="featured-content">
+        <div>
+          <span class="eyebrow">Proximamente</span>
+          <h3 class="featured-name"></h3>
+          <p class="featured-copy"></p>
+        </div>
       </div>
       <div class="featured-footer">
         <span class="featured-price"></span>
@@ -307,8 +423,8 @@
     </a>
   </template>
 
-  <script src="data.js?v=20260401a"></script>
-  <script src="store.js?v=20260401a"></script>
-  <script src="home.js?v=20260401a"></script>
+  <script src="data.js?v=20260401b"></script>
+  <script src="store.js?v=20260401b"></script>
+  <script src="home.js?v=20260401b"></script>
 </body>
 </html>

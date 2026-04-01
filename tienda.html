@@ -6,8 +6,8 @@
   <title>Roble Casa | Tienda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401a">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260401b">
 </head>
 <body data-page="shop">
   <div class="page-shell">
@@ -36,12 +36,13 @@
             <span class="eyebrow">Navegacion</span>
             <strong>Explora la tienda</strong>
           </div>
-          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">×</button>
+          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">x</button>
         </div>
         <a class="nav-link" href="index.html">Inicio</a>
         <a class="nav-link is-active" href="tienda.html">Tienda</a>
         <a class="nav-link" href="index.html#best-sellers">Mas vendidos</a>
-        <a class="nav-link" href="index.html#new-arrivals">Novedades</a>
+        <a class="nav-link" href="index.html#new-arrivals">Proximamente</a>
+        <a class="nav-link" href="index.html#quienes-somos">Quienes somos</a>
         <a class="nav-link nav-link-mobile" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
       </nav>
       <div class="header-actions">
@@ -162,8 +163,16 @@
           <input id="checkoutPhone" name="phone" type="tel" placeholder="300 123 4567" required>
         </label>
         <label>
+          <span>Correo</span>
+          <input id="checkoutEmail" name="email" type="email" placeholder="tu@email.com" required>
+        </label>
+        <label>
           <span>Ciudad</span>
           <input id="checkoutCity" name="city" type="text" placeholder="Ciudad de entrega" required>
+        </label>
+        <label>
+          <span>Direccion de entrega</span>
+          <input id="checkoutAddress" name="address" type="text" placeholder="Calle, altura y referencia" required>
         </label>
         <label>
           <span>Pago</span>
@@ -202,7 +211,7 @@
             <strong id="modalPrice">$0</strong>
             <span id="modalInstallments"></span>
           </div>
-          <span class="modal-rating" id="modalRating">★ 0.0</span>
+          <span class="modal-rating" id="modalRating">&#9733; 0.0</span>
         </div>
         <div class="modal-actions">
           <button class="button button-primary" id="modalAddToCart" type="button">Agregar al carrito</button>
@@ -269,8 +278,8 @@
     </article>
   </template>
 
-  <script src="data.js?v=20260401a"></script>
-  <script src="store.js?v=20260401a"></script>
-  <script src="app.js?v=20260401a"></script>
+  <script src="data.js?v=20260401b"></script>
+  <script src="store.js?v=20260401b"></script>
+  <script src="app.js?v=20260401b"></script>
 </body>
 </html>

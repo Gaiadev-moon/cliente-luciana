@@ -130,7 +130,7 @@
     image.src = createProductImage(product);
     image.alt = product.name;
     card.querySelector(".product-category").textContent = product.category;
-    card.querySelector(".product-rating").textContent = `★ ${product.rating.toFixed(1)}`;
+    card.querySelector(".product-rating").textContent = `\u2605 ${product.rating.toFixed(1)}`;
     card.querySelector(".product-name").textContent = product.name;
     card.querySelector(".product-description").textContent = product.description;
     card.querySelector(".product-price").textContent = formatPrice(product.price);

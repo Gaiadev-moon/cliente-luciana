@@ -125,7 +125,7 @@
     if (cartTotal) cartTotal.textContent = formatPrice(details.total);
     if (checkoutReview) {
       checkoutReview.innerHTML = details.quantity
-        ? `<strong>Resumen del pedido</strong><span>${details.quantity} producto(s)</span><span>Subtotal: ${formatPrice(details.subtotal)}</span><span>Envio: ${formatPrice(details.shipping)}</span><span>Total: ${formatPrice(details.total)}</span>`
+        ? `<strong>Resumen del pedido</strong><span>${details.quantity} producto(s)</span><span>Subtotal: ${formatPrice(details.subtotal)}</span><span>Envio: ${formatPrice(details.shipping)}</span><span>Total: ${formatPrice(details.total)}</span><span>Factura y entrega por correo luego del pago.</span>`
         : `<strong>Resumen del pedido</strong><span>Agrega productos antes de continuar.</span>`;
     }
 
@@ -166,7 +166,7 @@
     modalDescription.textContent = product.description;
     modalPrice.textContent = formatPrice(product.price);
     modalInstallments.textContent = `Hasta 6 cuotas de ${formatPrice(Math.round(product.price / 6))}`;
-    modalRating.textContent = `★ ${product.rating.toFixed(1)}`;
+    modalRating.textContent = `\u2605 ${product.rating.toFixed(1)}`;
     modalTags.innerHTML = "";
     product.tags.forEach((tag) => {
       const element = document.createElement("span");
@@ -250,12 +250,14 @@
     const formData = new FormData(checkoutForm);
     const name = String(formData.get("name") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
     const city = String(formData.get("city") || "").trim();
+    const address = String(formData.get("address") || "").trim();
     const payment = String(formData.get("payment") || "").trim();
     const notes = String(formData.get("notes") || "").trim();
 
-    if (!name || !phone || !city || !payment) {
-      showToast("Completa nombre, telefono, ciudad y forma de pago.");
+    if (!name || !phone || !email || !city || !address || !payment) {
+      showToast("Completa nombre, telefono, correo, direccion, ciudad y forma de pago.");
       return;
     }
 
@@ -267,7 +269,11 @@
     };
     const order = {
       code: orderCode,
-      customer: { name, phone, city, payment: paymentLabels[payment] || payment, notes },
+      invoice: {
+        number: `FC-${new Date().getFullYear()}-${orderCode.slice(-4)}`,
+        issuedAt: new Date().toLocaleString("es-CO")
+      },
+      customer: { name, phone, email, city, address, payment: paymentLabels[payment] || payment, notes },
       items: details.items.map(({ product, quantity }) => ({
         id: product.id,
         name: product.name,

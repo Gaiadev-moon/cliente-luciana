@@ -1,5 +1,5 @@
 (() => {
-  const { products, formatPrice } = window.RobleData;
+  const { products, formatPrice, CONTACT_EMAIL, buildContactMailto } = window.RobleData;
   const { createProductImage, addToCart, openCart, openProductModal, showToast } = window.RobleStore;
 
   const categoryGrid = document.getElementById("categoryGrid");
@@ -8,6 +8,12 @@
   const productCardTemplate = document.getElementById("productCardTemplate");
   const featuredCardTemplate = document.getElementById("featuredCardTemplate");
   const categoryCardTemplate = document.getElementById("categoryCardTemplate");
+  const contactForm = document.getElementById("contactForm");
+  const contactFeedback = document.getElementById("contactFeedback");
+
+  document.querySelectorAll("[data-contact-email]").forEach((link) => {
+    link.href = `mailto:${CONTACT_EMAIL}`;
+  });
 
   const categoryContent = {
     Sala: {
@@ -39,6 +45,7 @@
   renderCategories();
   renderBestSellers();
   renderNewArrivals();
+  bindContactForm();
 
   function renderCategories() {
     Object.values(categoryContent).forEach((item) => {
@@ -63,6 +70,9 @@
   function renderNewArrivals() {
     products.filter((product) => product.isNew).slice(0, 3).forEach((product) => {
       const card = featuredCardTemplate.content.firstElementChild.cloneNode(true);
+      const image = card.querySelector("img");
+      image.src = createProductImage(product);
+      image.alt = product.name;
       card.querySelector(".featured-name").textContent = product.name;
       card.querySelector(".featured-copy").textContent = product.description;
       card.querySelector(".featured-price").textContent = formatPrice(product.price);
@@ -77,7 +87,7 @@
     image.src = createProductImage(product);
     image.alt = product.name;
     card.querySelector(".product-category").textContent = product.category;
-    card.querySelector(".product-rating").textContent = `★ ${product.rating.toFixed(1)}`;
+    card.querySelector(".product-rating").textContent = `\u2605 ${product.rating.toFixed(1)}`;
     card.querySelector(".product-name").textContent = product.name;
     card.querySelector(".product-description").textContent = product.description;
     card.querySelector(".product-price").textContent = formatPrice(product.price);
@@ -98,6 +108,32 @@
 
     card.querySelector(".view-product").addEventListener("click", () => {
       openProductModal(product.id);
+    });
+  }
+
+  function bindContactForm() {
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const subject = String(formData.get("subject") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      if (!name || !email || !subject || !message) {
+        showToast("Completa nombre, correo, asunto y mensaje para enviar la consulta.");
+        return;
+      }
+
+      if (contactFeedback) {
+        contactFeedback.textContent = `Se abrira tu correo para enviar la consulta a ${CONTACT_EMAIL}.`;
+      }
+
+      window.location.href = buildContactMailto({ name, email, phone, subject, message });
+      showToast("Se preparo tu consulta para enviarla por mail.");
     });
   }
 })();

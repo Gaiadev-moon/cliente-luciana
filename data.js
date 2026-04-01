@@ -1,5 +1,10 @@
 (() => {
   const WHATSAPP_NUMBER = "573001234567";
+  const CONTACT_EMAIL = "ventas@roblecasa.com";
+  const CONTACT_PHONE = "+57 300 123 4567";
+  const CONTACT_INSTAGRAM = "https://www.instagram.com/roblecasa";
+  const CONTACT_PINTEREST = "https://www.pinterest.com/roblecasa";
+  const CONTACT_FACEBOOK = "https://www.facebook.com/roblecasa";
   const products = [
     { id: "sofa-aurora", name: "Sofa Aurora", category: "Sala", material: "Lino", price: 2890000, rating: 4.9, badge: "Top ventas", featured: true, isNew: false, description: "Sofa de tres puestos con apoyo lumbar suave y presencia calida para salas contemporaneas.", tags: ["3 puestos", "Beige calido", "Entrega rapida"], type: "sofa", image: "assets/images/catalog/catalog-01.jpg", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
     { id: "sofa-alba", name: "Sofa Alba", category: "Sala", material: "Chenille", price: 3090000, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Sofa de volumen generoso con textura suave y presencia sobria.", tags: ["4 puestos", "Chenille", "Premium"], type: "sofa", image: "assets/images/catalog/catalog-02.jpg", palette: ["#dbc3af", "#8d6954", "#f8eee5"] },
@@ -37,6 +42,17 @@
   const saveCart = (cart) => localStorage.setItem("roble-casa-cart", JSON.stringify(cart));
   const formatPrice = (price) => currencyFormatter.format(price);
   const buildWhatsappUrl = (product) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(product ? `Hola, quiero informacion sobre ${product.name} (${formatPrice(product.price)}).` : "Hola, quiero asesoria para elegir muebles de Roble Casa.")}`;
+  const buildContactMailto = ({ name = "", email = "", phone = "", subject = "Consulta desde la web", message = "" } = {}) => {
+    const lines = [
+      `Nombre: ${name || "-"}`,
+      `Correo: ${email || "-"}`,
+      `Telefono: ${phone || "-"}`,
+      "",
+      message || "Hola, quiero recibir asesoramiento sobre muebles y entrega."
+    ];
+
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  };
 
   function createProductImage(product) {
     if (product.image) return product.image;
@@ -54,5 +70,19 @@
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">${common}${illustrations[product.type] || illustrations.chair}</svg>`)}`;
   }
 
-  window.RobleData = { WHATSAPP_NUMBER, products, loadCart, saveCart, formatPrice, buildWhatsappUrl, createProductImage };
+  window.RobleData = {
+    WHATSAPP_NUMBER,
+    CONTACT_EMAIL,
+    CONTACT_PHONE,
+    CONTACT_INSTAGRAM,
+    CONTACT_PINTEREST,
+    CONTACT_FACEBOOK,
+    products,
+    loadCart,
+    saveCart,
+    formatPrice,
+    buildWhatsappUrl,
+    buildContactMailto,
+    createProductImage
+  };
 })();

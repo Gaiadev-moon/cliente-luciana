@@ -6,8 +6,8 @@
   <title>Roble Casa | Pago</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260401a">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260401b">
 </head>
 <body data-page="payment">
   <div class="page-shell">
@@ -36,10 +36,11 @@
             <span class="eyebrow">Navegacion</span>
             <strong>Continua tu compra</strong>
           </div>
-          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">×</button>
+          <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menu">x</button>
         </div>
         <a class="nav-link" href="index.html">Inicio</a>
         <a class="nav-link" href="tienda.html">Tienda</a>
+        <a class="nav-link" href="index.html#quienes-somos">Contacto</a>
         <a class="nav-link is-active" href="pago.html">Pago</a>
       </nav>
       <div class="header-actions">
@@ -51,8 +52,8 @@
       <section class="payment-hero">
         <div>
           <span class="eyebrow">Pago</span>
-          <h1>Revisa tu pedido y elige el medio de pago.</h1>
-          <p>Confirma los datos del pedido y completa el pago con el medio que prefieras.</p>
+          <h1>Facturacion, pago y entrega en un solo flujo.</h1>
+          <p>Revisa el pedido, completa el cobro y confirma por correo los datos finales de entrega.</p>
         </div>
       </section>
 
@@ -66,6 +67,7 @@
           </div>
           <div class="payment-order" id="paymentOrder"></div>
           <div class="payment-summary" id="paymentSummary"></div>
+          <div class="invoice-card" id="invoiceCard"></div>
         </article>
 
         <article class="payment-card">
@@ -73,6 +75,14 @@
             <div>
               <span class="eyebrow">Medios disponibles</span>
               <h2>Metodo de pago</h2>
+            </div>
+          </div>
+
+          <div class="payment-status" id="paymentStatus">
+            <span class="payment-status-dot"></span>
+            <div>
+              <strong>Pasarela lista</strong>
+              <p>Verifica el medio, confirma el cobro y enviaremos los datos de entrega al correo indicado.</p>
             </div>
           </div>
 
@@ -106,6 +116,16 @@
             </label>
             <div class="payment-form-grid">
               <label>
+                <span>Documento</span>
+                <input id="billingDocument" type="text" placeholder="Cedula o NIT" required>
+              </label>
+              <label>
+                <span>Nombre fiscal</span>
+                <input id="billingName" type="text" placeholder="Nombre para facturacion" required>
+              </label>
+            </div>
+            <div class="payment-form-grid">
+              <label>
                 <span>Vencimiento</span>
                 <input id="cardExpiry" type="text" placeholder="MM/AA" required>
               </label>
@@ -115,11 +135,22 @@
               </label>
             </div>
             <div class="checkout-review">
-              <strong>Pago protegido</strong>
-              <span>Visa, Mastercard, Amex y PSE visibles para mostrar el flujo final de cobro.</span>
+              <strong>Facturacion y entrega</strong>
+              <span>Al aprobar el pago, generamos factura, confirmacion de compra y aviso de entrega al correo del cliente.</span>
             </div>
             <button class="button button-primary button-full" type="submit">Pagar ahora</button>
           </form>
+
+          <div class="payment-processing" id="paymentProcessing" hidden>
+            <div class="processing-spinner"></div>
+            <strong>Procesando pago</strong>
+            <p>Estamos validando el medio de pago, preparando la factura y registrando la entrega.</p>
+            <div class="processing-steps">
+              <span class="is-active">Validacion bancaria</span>
+              <span>Emision de factura</span>
+              <span>Correo de entrega</span>
+            </div>
+          </div>
 
           <div class="checkout-success" id="paymentSuccess" hidden></div>
         </article>
@@ -135,7 +166,7 @@
     </main>
   </div>
 
-  <script src="data.js?v=20260401a"></script>
-  <script src="payment.js?v=20260401a"></script>
+  <script src="data.js?v=20260401b"></script>
+  <script src="payment.js?v=20260401b"></script>
 </body>
 </html>
