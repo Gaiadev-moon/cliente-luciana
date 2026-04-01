@@ -378,6 +378,10 @@ a { color: inherit; }
 .hero p,
 .shop-hero p { margin: 0; line-height: 1.75; font-size: 1.02rem; }
 
+.section-copy-green {
+  color: color-mix(in srgb, var(--premium-green) 72%, var(--text-soft) 28%);
+}
+
 .hero-actions { gap: 14px; margin-top: 30px; justify-content: flex-start; }
 
 .hero-metrics {
@@ -409,6 +413,14 @@ a { color: inherit; }
   min-height: 110px;
   padding: 18px;
   border-radius: var(--radius-lg);
+}
+
+.hero-metrics article strong {
+  color: var(--premium-green-strong);
+}
+
+.hero-metrics article span {
+  color: color-mix(in srgb, var(--premium-green) 68%, var(--text-soft) 32%);
 }
 
 .hero-visual,
