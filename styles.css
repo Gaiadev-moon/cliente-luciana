@@ -806,6 +806,49 @@ a { color: inherit; }
   line-height: 1.7;
 }
 
+.about-preview-eyebrow {
+  color: var(--premium-green-strong);
+}
+
+.about-preview-actions {
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.about-preview-primary,
+.about-preview-secondary {
+  min-width: 220px;
+}
+
+.about-preview-primary {
+  position: relative;
+  background: linear-gradient(135deg, #244133, #3e5c49 58%, #53755f);
+  box-shadow: 0 18px 34px rgba(39, 67, 54, 0.26);
+}
+
+.about-preview-primary::after {
+  content: "Mas info";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 0 10px;
+  min-height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 249, 244, 0.96);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-preview-secondary {
+  border-color: rgba(62, 92, 73, 0.24);
+  background: rgba(247, 251, 248, 0.96);
+}
+
 .about-layout {
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
   gap: 20px;
@@ -1915,6 +1958,18 @@ a { color: inherit; }
     align-items: flex-start;
     padding: 20px;
     border-radius: 22px;
+  }
+
+  .about-preview-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-preview-primary,
+  .about-preview-secondary {
+    min-width: 0;
+    width: 100%;
   }
 
   .payment-promo-card h2,
