@@ -63,7 +63,7 @@
 
   paymentOrder.innerHTML = order.items.map((item) => `
     <article class="payment-order-item">
-      <img src="${item.image}" alt="${item.name}">
+      <img src="${item.image}" alt="${item.name}" style="object-position:${item.imagePosition || "center"}">
       <div>
         <h3>${item.name}</h3>
         <p>${item.quantity} x ${formatPrice(item.price)}</p>

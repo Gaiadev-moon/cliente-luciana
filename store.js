@@ -161,6 +161,7 @@
     state.activeProductId = productId;
     modalImage.src = createProductImage(product);
     modalImage.alt = product.name;
+    modalImage.style.objectPosition = product.imagePosition || "center";
     modalCategory.textContent = product.category;
     modalTitle.textContent = product.name;
     modalDescription.textContent = product.description;
@@ -279,7 +280,8 @@
         name: product.name,
         price: product.price,
         quantity,
-        image: createProductImage(product)
+        image: createProductImage(product),
+        imagePosition: product.imagePosition || "center"
       })),
       subtotal: details.subtotal,
       shipping: details.shipping,

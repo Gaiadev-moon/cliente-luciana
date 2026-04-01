@@ -129,6 +129,7 @@
     const image = card.querySelector("img");
     image.src = createProductImage(product);
     image.alt = product.name;
+    image.style.objectPosition = product.imagePosition || "center";
     card.querySelector(".product-category").textContent = product.category;
     card.querySelector(".product-rating").textContent = `\u2605 ${product.rating.toFixed(1)}`;
     card.querySelector(".product-name").textContent = product.name;
