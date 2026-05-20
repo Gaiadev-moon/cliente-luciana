@@ -550,6 +550,7 @@ a { color: inherit; }
   box-shadow: var(--shadow-soft);
 }
 
+.construction-notice h2,
 .construction-notice h3 {
   max-width: 720px;
   margin: 8px 0 10px;
