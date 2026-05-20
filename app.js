@@ -19,6 +19,8 @@
   const closeFilters = document.getElementById("closeFilters");
   const filtersPanel = document.querySelector(".filters-panel");
 
+  if (!productGrid || !featuredStrip) return;
+
   const state = {
     search: "",
     category: new URLSearchParams(window.location.search).get("categoria") || "all",

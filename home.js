@@ -48,6 +48,8 @@
   bindContactForm();
 
   function renderCategories() {
+    if (!categoryGrid) return;
+
     Object.values(categoryContent).forEach((item) => {
       const card = categoryCardTemplate.content.firstElementChild.cloneNode(true);
       card.href = item.href;
@@ -59,6 +61,8 @@
   }
 
   function renderBestSellers() {
+    if (!bestSellerGrid) return;
+
     const items = [...products].sort((a, b) => b.rating - a.rating).slice(0, 4);
     items.forEach((product) => {
       const card = productCardTemplate.content.firstElementChild.cloneNode(true);
