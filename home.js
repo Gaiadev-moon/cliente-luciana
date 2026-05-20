@@ -68,6 +68,8 @@
   }
 
   function renderNewArrivals() {
+    if (!newArrivalGrid) return;
+
     products.filter((product) => product.isNew).slice(0, 3).forEach((product) => {
       const card = featuredCardTemplate.content.firstElementChild.cloneNode(true);
       const image = card.querySelector("img");
