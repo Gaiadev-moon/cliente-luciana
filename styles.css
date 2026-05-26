@@ -382,7 +382,7 @@ a { color: inherit; }
   margin: 0 0 16px;
   font-size: clamp(3.2rem, 7vw, 5.4rem);
   line-height: 0.92;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .hero-actions .button,
@@ -418,6 +418,199 @@ a { color: inherit; }
 }
 
 .hero-actions { gap: 14px; margin-top: 30px; justify-content: flex-start; }
+
+.welcome-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.welcome-card,
+.experience-card,
+.shop-hero-art {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(102, 117, 77, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(102, 117, 77, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 251, 244, 0.96), rgba(242, 232, 218, 0.92));
+  box-shadow: var(--shadow-soft);
+}
+
+.welcome-card {
+  width: min(100%, 660px);
+  padding: clamp(24px, 3.4vw, 36px);
+  border-radius: 34px;
+}
+
+.welcome-card::after,
+.botanical-note::after {
+  content: "";
+  position: absolute;
+  right: -44px;
+  bottom: -40px;
+  width: 210px;
+  height: 210px;
+  border: 2px solid rgba(102, 117, 77, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.welcome-card h1 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.12em;
+  margin-bottom: 12px;
+  color: var(--accent-strong);
+  font-size: clamp(3.7rem, 8vw, 6.2rem);
+  line-height: 0.84;
+}
+
+.script-word {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.05em;
+  font-weight: 400;
+}
+
+.welcome-card p {
+  max-width: 500px;
+  margin: 18px 0 18px;
+  color: color-mix(in srgb, var(--text-soft) 86%, var(--accent-strong) 14%);
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.16rem, 1.9vw, 1.46rem);
+  line-height: 1.36;
+}
+
+.welcome-card strong {
+  display: block;
+  color: var(--accent-strong);
+  font-family: "Fraunces", serif;
+  font-size: 1.22rem;
+  font-weight: 600;
+}
+
+.welcome-card em {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.28em;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.botanical-sprig {
+  display: block;
+  width: 46px;
+  height: 42px;
+  margin-bottom: 12px;
+  border-left: 2px solid var(--accent);
+  border-radius: 50%;
+  transform: rotate(28deg);
+}
+
+.botanical-sprig::before,
+.botanical-sprig::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  border: 2px solid var(--accent);
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+}
+
+.botanical-sprig::before {
+  top: 8px;
+  left: 11px;
+  transform: rotate(-18deg);
+}
+
+.botanical-sprig::after {
+  top: 22px;
+  left: 2px;
+  transform: rotate(32deg);
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(280px, 100%);
+  color: var(--accent);
+}
+
+.ornament-divider span {
+  flex: 1;
+  height: 1px;
+  background: rgba(102, 117, 77, 0.36);
+}
+
+.ornament-divider i {
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.ritual-icons,
+.inspiration-list,
+.shop-product-tags {
+  display: grid;
+  gap: 12px;
+}
+
+.ritual-icons {
+  width: min(100%, 660px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.ritual-icons article {
+  min-height: 150px;
+  padding: 18px;
+  border: 1px solid rgba(102, 117, 77, 0.16);
+  border-radius: 24px;
+  background: rgba(255, 251, 244, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.ritual-icons strong {
+  display: block;
+  margin: 12px 0 7px;
+  color: var(--accent-strong);
+  font-family: "Fraunces", serif;
+  line-height: 1.04;
+}
+
+.ritual-icons small {
+  display: block;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+.line-icon {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+  border: 1px solid rgba(102, 117, 77, 0.28);
+  border-radius: 50%;
+}
+
+.line-icon::before {
+  font-family: "Times New Roman", serif;
+  font-size: 1.42rem;
+  line-height: 1;
+}
+
+.line-icon-leaf::before { content: "⌒"; transform: rotate(-35deg); }
+.line-icon-heart::before { content: "♡"; font-size: 1.55rem; }
+.line-icon-flower::before { content: "✽"; }
+.line-icon-spark::before { content: "✦"; }
+.line-icon-recycle::before { content: "↻"; font-size: 1.2rem; }
+.line-icon-house::before { content: "⌂"; font-size: 1.34rem; }
 
 .hero-metrics {
   gap: 14px;
@@ -489,7 +682,7 @@ a { color: inherit; }
 }
 
 .hero-visual,
-.hero-showcase { min-height: 560px; }
+.hero-showcase { min-height: 520px; }
 
 .hero-showcase {
   position: relative;
@@ -502,9 +695,13 @@ a { color: inherit; }
 .hero-photo-showcase img {
   width: 100%;
   height: 100%;
-  min-height: 560px;
+  min-height: 520px;
   object-fit: cover;
   object-position: center;
+}
+
+.hero-home .hero-photo-showcase {
+  border: 10px solid rgba(255, 251, 244, 0.82);
 }
 
 .hero-photo-showcase::after {
@@ -551,6 +748,64 @@ a { color: inherit; }
 .home-section,
 .catalog-section { padding: 8px 6px; }
 
+.experience-grid,
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 20px;
+  padding: 8px 6px 24px;
+}
+
+.experience-card {
+  min-height: 430px;
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.experience-card-photo {
+  padding: 0;
+}
+
+.experience-card-photo img,
+.coming-soon-photo img,
+.about-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.experience-card h2 {
+  max-width: 620px;
+  margin: 0 0 22px;
+  color: var(--accent-strong);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 0.96;
+}
+
+.inspiration-list {
+  max-width: 620px;
+}
+
+.inspiration-list span {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(102, 117, 77, 0.14);
+  border-radius: 20px;
+  background: rgba(255, 251, 244, 0.72);
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
+.inspiration-list .line-icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
 .section-heading {
   justify-content: space-between;
   gap: 20px;
@@ -588,6 +843,8 @@ a { color: inherit; }
 .benefits { grid-template-columns: repeat(3, 1fr); margin: 18px 0 38px; }
 
 .construction-notice {
+  position: relative;
+  overflow: hidden;
   padding: 34px;
   border: 1px solid rgba(122, 93, 74, 0.16);
   border-radius: 28px;
@@ -595,6 +852,12 @@ a { color: inherit; }
     linear-gradient(135deg, rgba(255, 251, 246, 0.96), rgba(236, 244, 235, 0.9)),
     var(--surface);
   box-shadow: var(--shadow-soft);
+}
+
+.botanical-note {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(102, 117, 77, 0.16), transparent 26%),
+    linear-gradient(135deg, rgba(255, 251, 244, 0.98), rgba(238, 231, 216, 0.95));
 }
 
 .construction-notice h2,
@@ -893,15 +1156,22 @@ a { color: inherit; }
 }
 
 .about-preview-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px auto;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   padding: 26px 28px;
   border-radius: 28px;
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
+}
+
+.about-preview-image {
+  width: 210px;
+  height: 240px;
+  border-radius: 24px;
+  border: 1px solid rgba(102, 117, 77, 0.16);
 }
 
 .about-preview-card h2 {
@@ -959,6 +1229,23 @@ a { color: inherit; }
 .about-preview-secondary {
   border-color: rgba(62, 92, 73, 0.24);
   background: rgba(247, 251, 248, 0.96);
+}
+
+.shop-hero-art {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  max-width: 310px;
+  padding: 18px;
+  border-radius: 24px;
+}
+
+.shop-hero-art strong {
+  color: var(--accent-strong);
+  font-family: "Fraunces", serif;
+  font-size: 1.18rem;
+  line-height: 1.08;
 }
 
 .about-layout {
@@ -1088,6 +1375,14 @@ a { color: inherit; }
   color: var(--premium-green-strong);
   font-size: 0.8rem;
   font-weight: 800;
+}
+
+.coming-soon-photo {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: #efe4d7;
+  box-shadow: var(--shadow-soft);
 }
 
 .social-links {
@@ -1523,7 +1818,34 @@ a { color: inherit; }
 }
 
 .payment-hero {
-  padding: 24px 6px 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  margin: 0 6px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(102, 117, 77, 0.14), transparent 26%),
+    linear-gradient(180deg, rgba(255, 251, 244, 0.98), rgba(243, 234, 222, 0.94));
+  box-shadow: var(--shadow-soft);
+}
+
+.payment-hero h1 {
+  max-width: 860px;
+  margin: 0 0 12px;
+  color: var(--accent-strong);
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 0.96;
+}
+
+.payment-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
 }
 
 .payment-layout {
@@ -1801,11 +2123,27 @@ a { color: inherit; }
   .contact-form-card,
   .product-modal-card,
   .shop-hero,
+  .payment-hero,
   .cta-banner,
+  .experience-grid,
+  .coming-soon-grid,
   .payment-layout {
     grid-template-columns: 1fr;
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .about-preview-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-preview-image {
+    width: 100%;
+    height: 320px;
+  }
+
+  .shop-hero-art {
+    max-width: none;
   }
 
   .hero-showcase,
@@ -1959,6 +2297,53 @@ a { color: inherit; }
     margin-bottom: 8px;
     font-size: clamp(1.8rem, 8vw, 2.2rem);
     line-height: 0.98;
+  }
+
+  .welcome-card {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .welcome-card h1 {
+    font-size: clamp(3.1rem, 18vw, 5.2rem);
+  }
+
+  .welcome-card p {
+    font-size: 1.18rem;
+  }
+
+  .ritual-icons {
+    grid-template-columns: 1fr;
+  }
+
+  .ritual-icons article {
+    min-height: 0;
+  }
+
+  .experience-grid,
+  .coming-soon-grid {
+    padding: 2px 0 18px;
+    gap: 14px;
+  }
+
+  .experience-card {
+    min-height: 0;
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .experience-card-photo img,
+  .coming-soon-photo img,
+  .about-preview-image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .experience-card h2 {
+    font-size: 2rem;
+  }
+
+  .inspiration-list span {
+    align-items: flex-start;
   }
 
   .hero p,
