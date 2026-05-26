@@ -1678,7 +1678,7 @@ a { color: inherit; }
 }
 
 .shop-product-preview {
-  grid-template-columns: repeat(2, minmax(260px, 430px));
+  grid-template-columns: repeat(2, minmax(240px, 370px));
   justify-content: center;
   gap: 22px;
   margin-top: 18px;
