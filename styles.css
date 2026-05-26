@@ -1314,6 +1314,36 @@ a { color: inherit; }
   padding: 12px 6px 20px;
 }
 
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 20%, rgba(102, 117, 77, 0.14), transparent 28%),
+    linear-gradient(135deg, rgba(255, 251, 246, 0.98), rgba(239, 246, 239, 0.92));
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  right: 34px;
+  bottom: -58px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(62, 92, 73, 0.14);
+  border-radius: 50%;
+}
+
+.about-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero h1 {
+  max-width: 760px;
+  color: var(--premium-green-strong);
+  letter-spacing: 0;
+}
+
 .about-preview-section {
   margin: 8px 6px 24px;
 }
@@ -1548,6 +1578,113 @@ a { color: inherit; }
 .about-visual-strip {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-bottom: 20px;
+}
+
+.about-interactive-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.about-interactive-card {
+  position: relative;
+  display: flex;
+  min-height: 460px;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid rgba(62, 92, 73, 0.16);
+  border-radius: 28px;
+  background: #efe4d7 center / cover no-repeat;
+  box-shadow: var(--shadow-soft);
+  isolation: isolate;
+  opacity: 0;
+  transform: translateY(26px);
+  transition: transform 520ms ease, opacity 520ms ease, box-shadow var(--transition), border-color var(--transition);
+}
+
+.about-interactive-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(35, 50, 40, 0.02) 0%, rgba(35, 50, 40, 0.12) 42%, rgba(26, 38, 31, 0.68) 100%);
+  transition: background var(--transition), opacity var(--transition);
+}
+
+.about-interactive-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  z-index: -1;
+  border: 1px solid rgba(255, 250, 242, 0.34);
+  border-radius: 22px;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.about-interactive-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-interactive-card:hover,
+.about-interactive-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(62, 92, 73, 0.28);
+  box-shadow: 0 28px 58px rgba(57, 76, 60, 0.18);
+  outline: none;
+}
+
+.about-interactive-card:hover::after,
+.about-interactive-card:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.about-card-content {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  padding: 18px;
+  border: 1px solid rgba(255, 250, 242, 0.28);
+  border-radius: 22px;
+  background: rgba(28, 42, 34, 0.44);
+  color: #fffaf2;
+  backdrop-filter: blur(5px);
+}
+
+.about-card-content .eyebrow,
+.about-card-content h2,
+.about-card-content p {
+  color: #fffaf2;
+}
+
+.about-card-content h2 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+  line-height: 1.02;
+}
+
+.about-card-content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-card-mission {
+  background-image: url("assets/images/aromarte/mission.jpg");
+}
+
+.about-card-inspira {
+  background-image: url("assets/images/aromarte/detalle-producto.jpg");
+}
+
+.about-card-conscious {
+  background-image: url("assets/images/aromarte/produccion-consciente.jpg");
 }
 
 .about-visual-strip article,
@@ -2458,6 +2595,10 @@ a { color: inherit; }
     height: 320px;
   }
 
+  .about-interactive-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .shop-hero-art {
     max-width: none;
   }
@@ -3095,9 +3236,14 @@ a { color: inherit; }
 
   .about-image-pair,
   .about-visual-strip,
+  .about-interactive-cards,
   .shop-product-preview {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+
+  .about-interactive-card {
+    min-height: 420px;
   }
 
   .catalog-construction {

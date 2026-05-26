@@ -4,10 +4,27 @@
 
   const contactForm = document.getElementById("contactForm");
   const contactFeedback = document.getElementById("contactFeedback");
+  const revealCards = document.querySelectorAll("[data-reveal-card]");
 
   document.querySelectorAll("[data-contact-email]").forEach((link) => {
     link.href = `mailto:${CONTACT_EMAIL}`;
   });
+
+  if (revealCards.length) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.18 });
+
+      revealCards.forEach((card) => observer.observe(card));
+    } else {
+      revealCards.forEach((card) => card.classList.add("is-visible"));
+    }
+  }
 
   if (!contactForm) return;
 
