@@ -857,8 +857,12 @@ a { color: inherit; }
   justify-content: flex-end;
   color: #fffaf2;
   background:
-    linear-gradient(180deg, rgba(55, 67, 44, 0.08), rgba(55, 67, 44, 0.72)),
+    linear-gradient(180deg, rgba(55, 67, 44, 0.02) 0%, rgba(55, 67, 44, 0.18) 58%, rgba(55, 67, 44, 0.5) 100%),
     url("assets/images/aromarte/brand-calm.jpg") center / cover no-repeat;
+}
+
+.story-panel-calm::before {
+  display: none;
 }
 
 .story-panel h2 {
