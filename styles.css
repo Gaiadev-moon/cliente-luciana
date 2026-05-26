@@ -1566,17 +1566,21 @@ a { color: inherit; }
 .shop-product-card {
   position: relative;
   display: flex;
-  min-height: 520px;
+  min-height: 460px;
   align-items: flex-end;
-  background-position: center;
-  background-size: cover;
+  background-color: #f4eee5;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto calc(100% - 92px);
 }
 
 .shop-product-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 251, 244, 0), rgba(49, 36, 29, 0.18));
+  background:
+    linear-gradient(180deg, rgba(255, 251, 244, 0.12), rgba(255, 251, 244, 0.18) 62%, rgba(49, 36, 29, 0.2)),
+    radial-gradient(circle at 18% 12%, rgba(62, 92, 73, 0.08), transparent 34%);
 }
 
 .shop-product-card > * {
@@ -1586,12 +1590,10 @@ a { color: inherit; }
 
 .shop-product-violeta {
   background-image: url("assets/images/aromarte/violeta-flores.jpg");
-  background-position: center 42%;
 }
 
 .shop-product-frambuesa {
   background-image: url("assets/images/aromarte/product-frambuesa.jpg");
-  background-position: center 42%;
 }
 
 .shop-product-media {
@@ -1606,31 +1608,22 @@ a { color: inherit; }
 .shop-product-copy {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
-  width: calc(100% - 24px);
-  margin: 12px;
-  padding: 10px;
+  width: calc(100% - 28px);
+  margin: 14px;
+  padding: 10px 12px;
   border: 1px solid rgba(255, 251, 244, 0.5);
-  border-radius: 999px;
-  background: rgba(255, 251, 244, 0.78);
+  border-radius: 18px;
+  background: rgba(255, 251, 244, 0.86);
   backdrop-filter: blur(8px);
 }
 
-.shop-product-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  min-width: 0;
-}
-
-.shop-product-tags span {
-  padding: 8px 11px;
-  border-radius: 999px;
-  background: rgba(62, 92, 73, 0.1);
-  color: var(--premium-green-strong);
-  font-size: 0.76rem;
-  font-weight: 800;
+.shop-product-copy .button {
+  width: 100%;
+  max-width: 260px;
+  align-self: center;
+  justify-content: center;
 }
 
 .coming-soon-photo {
@@ -3108,6 +3101,10 @@ a { color: inherit; }
     flex-direction: column;
     border-radius: 22px;
     padding: 12px;
+  }
+
+  .shop-product-card {
+    min-height: 390px;
   }
 
   .contact-form {

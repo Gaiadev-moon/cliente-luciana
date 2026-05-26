@@ -1,6 +1,6 @@
 (() => {
   const { products, formatPrice, getProductFinancing } = window.RobleData;
-  const { createProductImage, addToCart, openCart, openProductModal, showToast } = window.RobleStore;
+  const { createProductImage, openProductModal } = window.RobleStore;
 
   const productGrid = document.getElementById("productGrid");
   const featuredStrip = document.getElementById("featuredStrip");
@@ -166,19 +166,6 @@
       logo.setAttribute("aria-label", method.label);
       logo.title = method.label;
       paymentLogos.appendChild(logo);
-    });
-
-    const tagsContainer = card.querySelector(".product-tags");
-    product.tags.forEach((tag) => {
-      const tagElement = document.createElement("span");
-      tagElement.textContent = tag;
-      tagsContainer.appendChild(tagElement);
-    });
-
-    card.querySelector(".add-to-cart").addEventListener("click", () => {
-      addToCart(product.id);
-      showToast(`${product.name} fue agregado al carrito.`);
-      openCart();
     });
 
     card.querySelector(".view-product").addEventListener("click", () => {
