@@ -56,7 +56,7 @@
   };
   order.customer = {
     email: "cliente@correo.com",
-    address: "Direccion a confirmar",
+    address: "Dirección a confirmar",
     ...order.customer
   };
   if (paymentLayout) paymentLayout.hidden = false;
@@ -76,11 +76,11 @@
     <div><span>Cliente</span><strong>${order.customer.name}</strong></div>
     <div><span>Correo</span><strong>${order.customer.email}</strong></div>
     <div><span>Ciudad</span><strong>${order.customer.city}</strong></div>
-    <div><span>Direccion</span><strong>${order.customer.address}</strong></div>
-    <div><span>Telefono</span><strong>${order.customer.phone}</strong></div>
+    <div><span>Dirección</span><strong>${order.customer.address}</strong></div>
+    <div><span>Teléfono</span><strong>${order.customer.phone}</strong></div>
     <div><span>Pedido</span><strong>${order.code}</strong></div>
     <div><span>Subtotal</span><strong>${formatPrice(order.subtotal)}</strong></div>
-    <div><span>Envio</span><strong>${formatPrice(order.shipping)}</strong></div>
+    <div><span>Envío</span><strong>${formatPrice(order.shipping)}</strong></div>
     <div class="cart-total"><span>Total</span><strong>${formatPrice(order.total)}</strong></div>
   `;
 
@@ -88,7 +88,7 @@
     invoiceCard.innerHTML = `
       <span class="eyebrow">Factura</span>
       <h3>${order.invoice.number}</h3>
-      <p>Emitida el ${order.invoice.issuedAt}. La confirmacion de pago y los datos de entrega se enviaran a <strong>${order.customer.email}</strong>.</p>
+      <p>Emitida el ${order.invoice.issuedAt}. La confirmación de pago y los datos de entrega se enviarán a <strong>${order.customer.email}</strong>.</p>
       <div class="invoice-meta">
         <span>Pago: ${order.customer.payment}</span>
         <span>Destino: ${order.customer.city}</span>
@@ -121,7 +121,7 @@
       amex: "American Express",
       mercadopago: "Mercado Pago",
       naranjax: "Naranja X",
-      sucredito: "Sucredito",
+      sucredito: "Sucrédito",
       credicash: "Credicash",
       transferencia: "Transferencia"
     }[activeMethod] || "Tarjeta";
@@ -159,11 +159,11 @@
         <strong>Operacion aprobada</strong>
         <p>El pedido <b>${order.code}</b> quedo confirmado con ${methodLabel} por <b>${formatPrice(order.total)}</b>.</p>
         <p>La factura fue emitida a nombre de <b>${billingName}</b> (${billingDocument}).</p>
-        <p>Enviamos al correo <b>${order.customer.email}</b> la confirmacion de compra y los datos de entrega para <b>${order.customer.address}, ${order.customer.city}</b>.</p>
+        <p>Enviamos al correo <b>${order.customer.email}</b> la confirmación de compra y los datos de entrega para <b>${order.customer.address}, ${order.customer.city}</b>.</p>
         <div class="delivery-mail-card">
           <span class="eyebrow">Correo enviado</span>
           <h3>Entrega confirmada</h3>
-          <p>Recibiras fecha tentativa, telefono de contacto y referencia del pedido en tu bandeja de entrada.</p>
+          <p>Recibirás fecha tentativa, teléfono de contacto y referencia del pedido en tu bandeja de entrada.</p>
         </div>
         <a class="button button-primary" href="index.html">Volver al inicio</a>
       `;

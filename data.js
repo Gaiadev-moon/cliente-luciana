@@ -11,16 +11,16 @@
     amex: { key: "amex", label: "AMEX", short: "AX", className: "payment-logo-amex" },
     mercadopago: { key: "mercadopago", label: "Mercado Pago", short: "MP", className: "payment-logo-mercadopago" },
     naranjax: { key: "naranjax", label: "Naranja X", short: "NX", className: "payment-logo-naranja" },
-    sucredito: { key: "sucredito", label: "Sucredito", short: "SC", className: "payment-logo-sucredito" },
+    sucredito: { key: "sucredito", label: "Sucrédito", short: "SC", className: "payment-logo-sucredito" },
     credicash: { key: "credicash", label: "Credicash", short: "CC", className: "payment-logo-credicash" },
     transferencia: { key: "transferencia", label: "Transferencia", short: "TR", className: "payment-logo-transfer" }
   };
   const products = [
-    { id: "difusor-violeta", name: "Difusor Violeta y Flores Blancas", category: "Difusores", material: "Aroma floral", price: 18500, rating: 4.9, badge: "Destacado", featured: true, isNew: true, description: "Un aroma suave y floral que transmite calma, frescura y armonia para espacios serenos.", tags: ["Hasta 45 dias", "Floral", "Artesanal"], type: "lamp", image: "assets/images/aromarte/violeta-flores.jpg", imagePosition: "center", palette: ["#e7ddce", "#66754d", "#fff9f1"] },
-    { id: "set-calma", name: "Set La Calma", category: "Sets", material: "Difusor y deco", price: 24500, rating: 4.8, badge: "Regalo", featured: true, isNew: false, description: "Una composicion delicada para regalar bienestar: difusor, flores secas y detalle decorativo.", tags: ["Regalo", "Decorativo", "Listo para entregar"], type: "lamp", image: "assets/images/aromarte/hero-product.jpg", imagePosition: "center", palette: ["#eadfce", "#6d7651", "#fff8ec"] },
-    { id: "vela-aromarte", name: "Vela AromArte", category: "Velas", material: "Cera aromatica", price: 12800, rating: 4.7, badge: "Nuevo", featured: false, isNew: true, description: "Vela de presencia suave para acompanar momentos de pausa, lectura o descanso.", tags: ["Hecha a mano", "Calma", "Detalle"], type: "lamp", image: "assets/images/aromarte/detalle-producto.jpg", imagePosition: "center", palette: ["#e8dccb", "#6b7652", "#fff9f2"] },
+    { id: "difusor-violeta", name: "Difusor Violeta y Flores Blancas", category: "Difusores", material: "Aroma floral", price: 18500, rating: 4.9, badge: "Destacado", featured: true, isNew: true, description: "Un aroma suave y floral que transmite calma, frescura y armonía para espacios serenos.", tags: ["Hasta 45 días", "Floral", "Artesanal"], type: "lamp", image: "assets/images/aromarte/violeta-flores.jpg", imagePosition: "center", palette: ["#e7ddce", "#66754d", "#fff9f1"] },
+    { id: "set-calma", name: "Set La Calma", category: "Sets", material: "Difusor y deco", price: 24500, rating: 4.8, badge: "Regalo", featured: true, isNew: false, description: "Una composición delicada para regalar bienestar: difusor, flores secas y detalle decorativo.", tags: ["Regalo", "Decorativo", "Listo para entregar"], type: "lamp", image: "assets/images/aromarte/hero-product.jpg", imagePosition: "center", palette: ["#eadfce", "#6d7651", "#fff8ec"] },
+    { id: "vela-aromarte", name: "Vela AromArte", category: "Velas", material: "Cera aromática", price: 12800, rating: 4.7, badge: "Nuevo", featured: false, isNew: true, description: "Vela de presencia suave para acompañar momentos de pausa, lectura o descanso.", tags: ["Hecha a mano", "Calma", "Detalle"], type: "lamp", image: "assets/images/aromarte/detalle-producto.jpg", imagePosition: "center", palette: ["#e8dccb", "#6b7652", "#fff9f2"] },
     { id: "ramo-seco", name: "Ramo Decorativo Natural", category: "Deco", material: "Flores secas", price: 9800, rating: 4.6, badge: "Artesanal", featured: false, isNew: false, description: "Flores secas para sumar textura, calidez y una presencia natural a bandejas o rincones.", tags: ["Natural", "Decorativo", "Liviano"], type: "lamp", image: "assets/images/aromarte/mission.jpg", imagePosition: "center", palette: ["#e9ddcb", "#63704d", "#fff8ef"] },
-    { id: "kit-produccion-consciente", name: "Kit Produccion Consciente", category: "Sets", material: "Seleccion responsable", price: 28900, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Una seleccion especial con piezas pensadas para durar, reutilizarse y acompanar el dia a dia.", tags: ["Consciente", "Premium", "Regalo"], type: "lamp", image: "assets/images/aromarte/produccion-consciente.jpg", imagePosition: "center", palette: ["#e7daca", "#64724f", "#fff8ee"] }
+    { id: "kit-produccion-consciente", name: "Kit Producción Consciente", category: "Sets", material: "Selección responsable", price: 28900, rating: 4.9, badge: "Premium", featured: true, isNew: true, description: "Una selección especial con piezas pensadas para durar, reutilizarse y acompañar el día a día.", tags: ["Consciente", "Premium", "Regalo"], type: "lamp", image: "assets/images/aromarte/produccion-consciente.jpg", imagePosition: "center", palette: ["#e7daca", "#64724f", "#fff8ee"] }
   ];
 
   const currencyFormatter = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
@@ -28,12 +28,12 @@
   const saveCart = (cart) => localStorage.setItem("aromarte-cart", JSON.stringify(cart));
   const formatPrice = (price) => currencyFormatter.format(price);
   const roundToThousands = (value) => Math.round(value / 1000) * 1000;
-  const buildWhatsappUrl = (product) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(product ? `Hola, quiero informacion sobre ${product.name} (${formatPrice(product.price)}).` : "Hola, quiero asesoria para elegir un aroma de AromArte.")}`;
+  const buildWhatsappUrl = (product) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(product ? `Hola, quiero información sobre ${product.name} (${formatPrice(product.price)}).` : "Hola, quiero asesoría para elegir un aroma de AromArte.")}`;
   const buildContactMailto = ({ name = "", email = "", phone = "", subject = "Consulta desde la web", message = "" } = {}) => {
     const lines = [
       `Nombre: ${name || "-"}`,
       `Correo: ${email || "-"}`,
-      `Telefono: ${phone || "-"}`,
+      `Teléfono: ${phone || "-"}`,
       "",
       message || "Hola, quiero recibir asesoramiento sobre aromas, presentaciones y disponibilidad."
     ];
@@ -74,7 +74,7 @@
     const promoCopyByMethod = {
       naranjax: `Promo ${effectiveInstallments} cuotas con Naranja X`,
       mercadopago: `${effectiveInstallments} cuotas con Mercado Pago`,
-      sucredito: `${effectiveInstallments} cuotas con Sucredito`,
+      sucredito: `${effectiveInstallments} cuotas con Sucrédito`,
       credicash: `${effectiveInstallments} cuotas con Credicash`,
       transferencia: "Precio especial por transferencia",
       visa: `${effectiveInstallments} cuotas con Visa`
