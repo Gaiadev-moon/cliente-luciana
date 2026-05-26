@@ -968,6 +968,30 @@ a { color: inherit; }
   box-shadow: var(--shadow-soft);
 }
 
+.catalog-construction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: auto;
+  padding: 22px 24px;
+}
+
+.catalog-construction h2 {
+  max-width: none;
+  margin: 2px 0 6px;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.catalog-construction p {
+  max-width: none;
+  font-size: 0.96rem;
+}
+
+.catalog-construction .button {
+  flex: 0 0 auto;
+}
+
 .botanical-note {
   background:
     radial-gradient(circle at 92% 12%, rgba(102, 117, 77, 0.16), transparent 26%),
@@ -1535,13 +1559,14 @@ a { color: inherit; }
 
 .shop-product-preview {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 20px;
+  gap: 18px;
+  margin-top: 16px;
 }
 
 .shop-product-card {
   position: relative;
   display: flex;
-  min-height: 760px;
+  min-height: 520px;
   align-items: flex-end;
   background-position: center;
   background-size: cover;
@@ -1561,10 +1586,12 @@ a { color: inherit; }
 
 .shop-product-violeta {
   background-image: url("assets/images/aromarte/violeta-flores.jpg");
+  background-position: center 42%;
 }
 
 .shop-product-frambuesa {
   background-image: url("assets/images/aromarte/product-frambuesa.jpg");
+  background-position: center 42%;
 }
 
 .shop-product-media {
@@ -1581,9 +1608,9 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  width: calc(100% - 28px);
-  margin: 16px;
-  padding: 12px;
+  width: calc(100% - 24px);
+  margin: 12px;
+  padding: 10px;
   border: 1px solid rgba(255, 251, 244, 0.5);
   border-radius: 999px;
   background: rgba(255, 251, 244, 0.78);
@@ -2599,7 +2626,7 @@ a { color: inherit; }
   }
 
   .shop-product-card {
-    min-height: 640px;
+    min-height: 520px;
   }
 
   .about-editorial-pair {
@@ -3031,6 +3058,12 @@ a { color: inherit; }
     gap: 14px;
   }
 
+  .catalog-construction {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
   .about-image-pair {
     margin-top: 18px;
   }
@@ -3053,7 +3086,10 @@ a { color: inherit; }
   }
 
   .shop-product-copy {
-    padding: 18px;
+    align-items: stretch;
+    flex-direction: column;
+    border-radius: 22px;
+    padding: 12px;
   }
 
   .contact-form {
