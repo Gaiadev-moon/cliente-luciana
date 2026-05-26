@@ -1678,29 +1678,21 @@ a { color: inherit; }
 }
 
 .shop-product-preview {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 16px;
+  grid-template-columns: repeat(2, minmax(260px, 430px));
+  justify-content: center;
+  gap: 22px;
+  margin-top: 18px;
 }
 
 .shop-product-card {
   position: relative;
-  display: flex;
-  min-height: 460px;
-  align-items: flex-end;
-  background-color: #f4eee5;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: auto calc(100% - 92px);
+  display: grid;
+  overflow: hidden;
+  background: rgba(255, 251, 246, 0.92);
 }
 
 .shop-product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 251, 244, 0.12), rgba(255, 251, 244, 0.18) 62%, rgba(49, 36, 29, 0.2)),
-    radial-gradient(circle at 18% 12%, rgba(62, 92, 73, 0.08), transparent 34%);
+  content: none;
 }
 
 .shop-product-card > * {
@@ -1708,12 +1700,17 @@ a { color: inherit; }
   z-index: 1;
 }
 
-.shop-product-violeta {
-  background-image: url("assets/images/aromarte/violeta-flores.jpg");
+.shop-product-image {
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #efe4d7;
 }
 
-.shop-product-frambuesa {
-  background-image: url("assets/images/aromarte/product-frambuesa.jpg");
+.shop-product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .shop-product-media {
@@ -1730,13 +1727,11 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: calc(100% - 28px);
-  margin: 14px;
-  padding: 10px 12px;
-  border: 1px solid rgba(255, 251, 244, 0.5);
-  border-radius: 18px;
-  background: rgba(255, 251, 244, 0.86);
-  backdrop-filter: blur(8px);
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  border-top: 1px solid rgba(62, 92, 73, 0.12);
+  background: linear-gradient(180deg, rgba(255, 251, 246, 0.98), rgba(245, 250, 246, 0.94));
 }
 
 .shop-product-copy .button {
