@@ -1288,7 +1288,7 @@ a { color: inherit; }
   grid-template-columns: minmax(0, 1fr) auto;
   background:
     linear-gradient(90deg, rgba(255, 251, 244, 0.94), rgba(255, 251, 244, 0.72) 52%, rgba(255, 251, 244, 0.12)),
-    url("assets/images/aromarte/produccion-consciente.jpg") right center / cover no-repeat;
+    url("assets/images/aromarte/mision-bg.png") center / cover no-repeat;
 }
 
 .about-preview-editorial::after {
@@ -2408,7 +2408,7 @@ a { color: inherit; }
     min-height: 0;
     background:
       linear-gradient(180deg, rgba(255, 251, 244, 0.96), rgba(255, 251, 244, 0.78)),
-      url("assets/images/aromarte/produccion-consciente.jpg") center / cover no-repeat;
+      url("assets/images/aromarte/mision-bg.png") center / cover no-repeat;
   }
 
   .hero-showcase,
