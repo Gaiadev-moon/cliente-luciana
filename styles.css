@@ -870,11 +870,6 @@ a { color: inherit; }
   line-height: 0.96;
 }
 
-.story-panel-calm h2,
-.story-panel-calm .eyebrow {
-  color: #fffaf2;
-}
-
 .experience-card {
   min-height: 430px;
   padding: 28px;
