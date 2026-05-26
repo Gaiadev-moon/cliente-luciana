@@ -1589,41 +1589,36 @@ a { color: inherit; }
 
 .about-interactive-card {
   position: relative;
-  display: flex;
+  display: block;
   min-height: 460px;
-  align-items: flex-end;
   overflow: hidden;
-  padding: 22px;
   border: 1px solid rgba(62, 92, 73, 0.16);
   border-radius: 28px;
-  background: #efe4d7 center / cover no-repeat;
+  background: #efe4d7;
   box-shadow: var(--shadow-soft);
-  isolation: isolate;
   opacity: 0;
   transform: translateY(26px);
   transition: transform 520ms ease, opacity 520ms ease, box-shadow var(--transition), border-color var(--transition);
-}
-
-.about-interactive-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(35, 50, 40, 0.02) 0%, rgba(35, 50, 40, 0.12) 42%, rgba(26, 38, 31, 0.68) 100%);
-  transition: background var(--transition), opacity var(--transition);
 }
 
 .about-interactive-card::after {
   content: "";
   position: absolute;
   inset: 14px;
-  z-index: -1;
   border: 1px solid rgba(255, 250, 242, 0.34);
   border-radius: 22px;
   opacity: 0;
   transform: scale(0.98);
   transition: opacity var(--transition), transform var(--transition);
+}
+
+.about-interactive-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  transition: transform 620ms ease;
 }
 
 .about-interactive-card.is-visible {
@@ -1639,52 +1634,15 @@ a { color: inherit; }
   outline: none;
 }
 
+.about-interactive-card:hover img,
+.about-interactive-card:focus-visible img {
+  transform: scale(1.07);
+}
+
 .about-interactive-card:hover::after,
 .about-interactive-card:focus-visible::after {
   opacity: 1;
   transform: scale(1);
-}
-
-.about-card-content {
-  display: grid;
-  gap: 10px;
-  width: 100%;
-  padding: 18px;
-  border: 1px solid rgba(255, 250, 242, 0.28);
-  border-radius: 22px;
-  background: rgba(28, 42, 34, 0.44);
-  color: #fffaf2;
-  backdrop-filter: blur(5px);
-}
-
-.about-card-content .eyebrow,
-.about-card-content h2,
-.about-card-content p {
-  color: #fffaf2;
-}
-
-.about-card-content h2 {
-  margin: 0;
-  font-family: "Fraunces", serif;
-  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
-  line-height: 1.02;
-}
-
-.about-card-content p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-.about-card-mission {
-  background-image: url("assets/images/aromarte/mission.jpg");
-}
-
-.about-card-inspira {
-  background-image: url("assets/images/aromarte/detalle-producto.jpg");
-}
-
-.about-card-conscious {
-  background-image: url("assets/images/aromarte/produccion-consciente.jpg");
 }
 
 .about-visual-strip article,
