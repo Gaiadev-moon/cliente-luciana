@@ -16,29 +16,29 @@
   });
 
   const categoryContent = {
-    Sala: {
-      label: "Sala",
-      title: "Sofas y butacas",
-      copy: "Piezas comodas y faciles de combinar para zonas sociales.",
-      href: "tienda.html?categoria=Sala"
+    Difusores: {
+      label: "Difusores",
+      title: "Aromas para cada rincon",
+      copy: "Fragancias suaves para acompanar espacios cotidianos.",
+      href: "tienda.html?categoria=Difusores"
     },
-    Comedor: {
-      label: "Comedor",
-      title: "Mesas y sillas",
-      copy: "Propuestas sobrias para reuniones diarias y espacios compartidos.",
-      href: "tienda.html?categoria=Comedor"
+    Sets: {
+      label: "Sets",
+      title: "Detalles listos para regalar",
+      copy: "Combinaciones cuidadas para momentos especiales.",
+      href: "tienda.html?categoria=Sets"
     },
-    Dormitorio: {
-      label: "Dormitorio",
-      title: "Camas y descanso",
-      copy: "Estructuras calidas y proporciones limpias para un ambiente sereno.",
-      href: "tienda.html?categoria=Dormitorio"
+    Velas: {
+      label: "Velas",
+      title: "Pausas con luz calida",
+      copy: "Piezas artesanales para descanso, lectura o rituales simples.",
+      href: "tienda.html?categoria=Velas"
     },
-    Estudio: {
-      label: "Estudio",
-      title: "Escritorios y guardado",
-      copy: "Muebles funcionales para trabajar o estudiar sin romper la estetica.",
-      href: "tienda.html?categoria=Estudio"
+    Deco: {
+      label: "Deco",
+      title: "Texturas naturales",
+      copy: "Flores secas y detalles para sumar calma visual.",
+      href: "tienda.html?categoria=Deco"
     }
   };
 
