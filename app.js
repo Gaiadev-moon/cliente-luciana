@@ -26,7 +26,7 @@
     category: new URLSearchParams(window.location.search).get("categoria") || "all",
     material: "all",
     sort: "featured",
-    maxPrice: Number(priceRange?.value) || 35000
+    maxPrice: 4200000
   };
 
   hydrateFilterOptions();
