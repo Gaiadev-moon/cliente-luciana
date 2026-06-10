@@ -927,7 +927,7 @@ a { color: inherit; }
 }
 
 .aromarte-story-band-single .story-panel-calm {
-  min-height: 520px;
+  min-height: 560px;
   background-position: center;
 }
 
@@ -976,36 +976,39 @@ a { color: inherit; }
 }
 
 .story-panel-carousel {
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: clamp(22px, 4vw, 42px);
+  background:
+    linear-gradient(90deg, rgba(38, 51, 38, 0.2) 0%, rgba(38, 51, 38, 0.08) 48%, rgba(255, 251, 246, 0.08) 100%),
+    url("assets/images/aromarte/home-benefits-bg.jpeg") center / cover no-repeat;
 }
 
 .story-carousel {
-  position: relative;
-  width: min(100%, 520px);
-  min-height: 260px;
+  display: grid;
+  width: min(100%, 460px);
 }
 
 .story-carousel-card {
-  position: absolute;
-  inset: auto 0 0;
+  grid-area: 1 / 1;
   display: grid;
-  gap: 12px;
-  padding: clamp(20px, 3vw, 28px);
-  border: 1px solid rgba(255, 250, 242, 0.46);
-  border-radius: 28px;
-  background: rgba(255, 251, 246, 0.9);
-  box-shadow: 0 26px 54px rgba(45, 55, 38, 0.18);
+  align-content: start;
+  gap: 14px;
+  min-height: 260px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(62, 92, 73, 0.18);
+  border-radius: 26px;
+  background: rgba(255, 251, 246, 0.94);
+  box-shadow: 0 26px 54px rgba(45, 55, 38, 0.2);
   opacity: 0;
-  transform: translateY(18px) scale(0.98);
+  transform: translateY(12px);
   transition: opacity 520ms ease, transform 520ms ease;
   pointer-events: none;
 }
 
 .story-carousel-card.is-active {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   pointer-events: auto;
 }
 
@@ -1016,16 +1019,16 @@ a { color: inherit; }
 }
 
 .story-carousel-card h2 {
-  max-width: 420px;
+  max-width: 360px;
   margin: 0;
   color: var(--premium-green-strong);
   font-family: "Fraunces", serif;
-  font-size: clamp(2rem, 4vw, 3.05rem);
-  line-height: 0.96;
+  font-size: clamp(1.9rem, 3.5vw, 2.65rem);
+  line-height: 1;
 }
 
 .story-carousel-card p {
-  max-width: 430px;
+  max-width: 360px;
   margin: 0;
   color: var(--text-soft);
   font-size: 1rem;
