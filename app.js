@@ -136,7 +136,16 @@
       card.querySelector(".featured-name").textContent = product.name;
       card.querySelector(".featured-copy").textContent = product.description;
       card.querySelector(".featured-price").textContent = formatPrice(product.price);
-      card.querySelector(".featured-action").addEventListener("click", () => openProductModal(product.id));
+      card.addEventListener("click", () => openProductModal(product.id));
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `Ver ${product.name}`);
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openProductModal(product.id);
+        }
+      });
       featuredStrip.appendChild(card);
     });
   }
@@ -168,8 +177,15 @@
       paymentLogos.appendChild(logo);
     });
 
-    card.querySelector(".view-product").addEventListener("click", () => {
-      openProductModal(product.id);
+    card.addEventListener("click", () => openProductModal(product.id));
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Ver ${product.name}`);
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openProductModal(product.id);
+      }
     });
   }
 
