@@ -10,6 +10,7 @@
   const categoryCardTemplate = document.getElementById("categoryCardTemplate");
   const contactForm = document.getElementById("contactForm");
   const contactFeedback = document.getElementById("contactFeedback");
+  const storyCarousel = document.querySelector("[data-story-carousel]");
 
   document.querySelectorAll("[data-contact-email]").forEach((link) => {
     link.href = `mailto:${CONTACT_EMAIL}`;
@@ -45,6 +46,7 @@
   renderCategories();
   renderBestSellers();
   renderNewArrivals();
+  initStoryCarousel();
   bindContactForm();
 
   function renderCategories() {
@@ -158,5 +160,21 @@
       window.location.href = buildContactMailto({ name, email, phone, subject, message });
       showToast("Se preparo tu consulta para enviarla por mail.");
     });
+  }
+
+  function initStoryCarousel() {
+    if (!storyCarousel) return;
+
+    const cards = Array.from(storyCarousel.querySelectorAll(".story-carousel-card"));
+    if (cards.length < 2) return;
+
+    let activeIndex = cards.findIndex((card) => card.classList.contains("is-active"));
+    if (activeIndex < 0) activeIndex = 0;
+
+    setInterval(() => {
+      cards[activeIndex].classList.remove("is-active");
+      activeIndex = (activeIndex + 1) % cards.length;
+      cards[activeIndex].classList.add("is-active");
+    }, 3600);
   }
 })();
