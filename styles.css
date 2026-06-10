@@ -922,6 +922,15 @@ a { color: inherit; }
   padding: 8px 6px 24px;
 }
 
+.aromarte-story-band-single {
+  grid-template-columns: 1fr;
+}
+
+.aromarte-story-band-single .story-panel-calm {
+  min-height: 520px;
+  background-position: center;
+}
+
 .story-panel {
   position: relative;
   min-height: 470px;
