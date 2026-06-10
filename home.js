@@ -175,6 +175,6 @@
       cards[activeIndex].classList.remove("is-active");
       activeIndex = (activeIndex + 1) % cards.length;
       cards[activeIndex].classList.add("is-active");
-    }, 3600);
+    }, 4800);
   }
 })();
