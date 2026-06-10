@@ -446,7 +446,7 @@ a { color: inherit; }
 .aromarte-hero-notes {
   display: flex;
   align-items: flex-end;
-  justify-content: stretch;
+  justify-content: flex-end;
 }
 
 .hero-copy,
@@ -497,6 +497,88 @@ a { color: inherit; }
 }
 
 .hero-actions { gap: 14px; margin-top: 30px; justify-content: flex-start; }
+
+.hero-shop-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  width: min(100%, 360px);
+  min-height: 230px;
+  align-content: center;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 250, 242, 0.52);
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(36, 65, 51, 0.96), rgba(62, 92, 73, 0.9)),
+    rgba(62, 92, 73, 0.94);
+  color: #fffaf2;
+  text-decoration: none;
+  box-shadow: 0 26px 54px rgba(42, 68, 54, 0.28);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.hero-shop-card::before {
+  content: "";
+  position: absolute;
+  right: -64px;
+  bottom: -74px;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(255, 250, 242, 0.22);
+  border-radius: 50%;
+}
+
+.hero-shop-card::after {
+  content: "→";
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 250, 242, 0.14);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.hero-shop-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 250, 242, 0.72);
+  box-shadow: 0 34px 64px rgba(42, 68, 54, 0.34);
+}
+
+.hero-shop-kicker,
+.hero-shop-card small {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-shop-kicker {
+  color: rgba(255, 250, 242, 0.78);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-shop-card strong {
+  position: relative;
+  z-index: 1;
+  font-family: "Fraunces", serif;
+  font-size: clamp(2.35rem, 4vw, 3.4rem);
+  line-height: 0.92;
+}
+
+.hero-shop-card small {
+  max-width: 260px;
+  color: rgba(255, 250, 242, 0.82);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
 
 .welcome-copy {
   display: flex;
@@ -2720,6 +2802,10 @@ a { color: inherit; }
     align-items: stretch;
   }
 
+  .hero-shop-card {
+    width: 100%;
+  }
+
   .about-preview-editorial {
     min-height: 0;
     background:
@@ -2883,11 +2969,16 @@ a { color: inherit; }
   }
 
   .welcome-card h1 {
-    font-size: clamp(3.1rem, 18vw, 5.2rem);
+    font-size: clamp(2.2rem, 12vw, 3.6rem);
   }
 
   .welcome-card p {
     font-size: 1.18rem;
+  }
+
+  .hero-shop-card {
+    min-height: 180px;
+    padding: 24px;
   }
 
   .ritual-icons {
